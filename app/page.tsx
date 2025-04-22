@@ -1,4 +1,6 @@
 import Image from "next/image";
+import {ThemeToggle} from "@/widgets/ThemeToggle";
+import { Button } from "@/shared/ui/button";
 
 export default function Home() {
   return (
@@ -49,6 +51,8 @@ export default function Home() {
           >
             Read our docs
           </a>
+          <Button>Click me</Button>
+          <ThemeToggle/>
         </div>
       </main>
       <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
