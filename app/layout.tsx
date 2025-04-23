@@ -4,6 +4,7 @@ import "./globals.css";
 // import '@/shared/styles/main.scss'
 import {ThemeProvider} from "@/providers/theme-provider";
 import {ReactNode} from "react";
+import {Header} from "@/widgets/Header/Header";
 
 const manrope = Manrope({
     variable: "--font-manrope",
@@ -33,6 +34,7 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
       >
+          <Header/>
           {children}
       </ThemeProvider>
       </body>
