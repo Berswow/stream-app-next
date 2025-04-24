@@ -125,6 +125,10 @@
   }
 }
 
+.my-container {
+  @apply container mx-auto p-4;
+}
+
 /**
   Нормализация блочной модели
  */

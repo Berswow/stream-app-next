@@ -24,7 +24,7 @@ export function BurgerMenu() {
 
                 <nav className="flex flex-col gap-4">
                     <Link
-                        href="/"
+                        href="/public"
                         onClick={() => setOpen(false)}
                         className="text-sm  hover:text-primary transition-colors"
                     >
@@ -32,21 +32,21 @@ export function BurgerMenu() {
 
                     </Link>
                     <Link
-                        href="/movies"
+                        href="#"
                         onClick={() => setOpen(false)}
                         className="text-sm  hover:text-primary transition-colors"
                     >
                         <Button>Фильмы</Button>
                     </Link>
                     <Link
-                        href="/tv"
+                        href="#"
                         onClick={() => setOpen(false)}
                         className="text-sm  hover:text-primary transition-colors"
                     >
                         <Button>Сериалы</Button>
                     </Link>
                     <Link
-                        href="/favorites"
+                        href="#"
                         onClick={() => setOpen(false)}
                         className="text-sm  hover:text-primary transition-colors"
                     >

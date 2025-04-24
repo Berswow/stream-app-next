@@ -4,7 +4,7 @@ import {Button} from "@/shared/ui/button";
 
 export const HeroTitle = () => {
     return (
-        <section className='container mx-auto p-4 flex flex-col items-center gap-12 -mt-15'>
+        <section className='my-container flex flex-col items-center gap-12 -mt-15'>
             <div className='flex flex-col items-center gap-3.5 text-center'>
                 <h1 className='font-bold text-3xl'>The Best Streaming Experience</h1>
                 <p className='text-neutral-500'>CinemaStreamBox is the best streaming experience for watching your
