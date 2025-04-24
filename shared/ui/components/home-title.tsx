@@ -9,7 +9,7 @@ type Props = {
 
 export const HomeTitle: React.FC<Props> = ({className, description, title}) => {
     return (
-        <div className={cn("flex flex-col gap-2 lg:gap-2.5 2xl:gap-3.5", className)}>
+        <div className={cn("flex flex-col gap-2 mb-10 lg:gap-2.5 lg:mb-15 2xl:gap-3.5 2xl:mb-20", className)}>
             <h2 className='font-bold text-2xl lg:text-3xl 2xl:text-[38px]'>{title}</h2>
             <div>
                 <p className='text-neutral-500 text-sm lg:text-base 2xl:text-xl'>{description}</p>
