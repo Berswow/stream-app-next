@@ -2,7 +2,7 @@
 
 import { useState } from "react"
 import { Sheet, SheetContent, SheetTrigger } from "@/shared/ui/sheet"
-import { Menu, X } from "lucide-react"
+import { Menu } from "lucide-react"
 import Link from "next/link"
 import {Button} from "@/shared/ui/button";
 
@@ -17,9 +17,6 @@ export function BurgerMenu() {
             <SheetContent side="right" className="w-[250px] sm:w-[300px] bg-background border-r">
                 <div className="flex items-center justify-between mb-6">
                     <h2 className="text-lg text-white font-semibold">Меню</h2>
-                    <button onClick={() => setOpen(false)} className="p-1 rounded hover:bg-muted">
-                        <X className="h-5 w-5 text-white" />
-                    </button>
                 </div>
 
                 <nav className="flex flex-col gap-4">
