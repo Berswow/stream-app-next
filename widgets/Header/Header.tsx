@@ -1,16 +1,17 @@
 'use client'
 
-import { usePathname } from 'next/navigation'
-import { BurgerMenu } from '@/shared/ui/components/BurgerMenu'
-import { Button } from '@/shared/ui/button'
+import {usePathname} from 'next/navigation'
+import {BurgerMenu} from '@/shared/ui/components/BurgerMenu'
+import {Button} from '@/shared/ui/button'
 import {Bell, Search} from 'lucide-react'
-import { cn } from '@/shared/lib/utils'
+import {cn} from '@/shared/lib/utils'
+import {ModeToggle} from "@/shared/ui/components/mode-toggle";
 
 const tabs = [
-    { id: 'home', label: 'Home', link: '/' },
-    { id: 'movies', label: 'Movies & Shows', link: '/movieshows' },
-    { id: 'series', label: 'Support', link: '/support' },
-    { id: 'favorites', label: 'Subscriptions', link: '/subscriptions' },
+    {id: 'home', label: 'Home', link: '/'},
+    {id: 'movies', label: 'Movies & Shows', link: '/movieshows'},
+    {id: 'series', label: 'Support', link: '/support'},
+    {id: 'favorites', label: 'Subscriptions', link: '/subscriptions'},
 ]
 
 export const Header = () => {
@@ -54,15 +55,17 @@ export const Header = () => {
             </nav>
 
             {/* Иконки поиска и профиля */}
-            <div className="hidden md:flex gap-8 items-center justify-end">
-                <Search size={30} />
-                <Bell size ={30} />
+            <div className="hidden md:flex gap-5 items-center justify-end">
+                <Search size={30}/>
+                <Bell size={30}/>
+                {/*<ModeToggle/>*/}
             </div>
 
             {/* Бургер для mobile */}
             <div className="block md:hidden">
-                <BurgerMenu />
+                <BurgerMenu/>
             </div>
+
         </header>
     )
 }

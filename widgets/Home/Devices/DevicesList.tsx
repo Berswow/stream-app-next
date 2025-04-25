@@ -47,7 +47,7 @@ export const DevicesList: React.FC<Props> = ({className}) => {
             <HomeTitle title='Explore our wide variety of categories' description="Whether you' re looking for a comedy
                        to make you laugh, a drama to make you think, or a documentary to learn something new"/>
 
-            <div className='flex flex-col gap-5 sm:grid grid-cols-2 sm:grid-rows-3 sm:gap-4 xl:grid-cols-3 grid-rows-2 xl:gap-4 2xl:gap-7.5'>
+            <div className='flex flex-col gap-5 sm:grid grid-cols-2 sm:gap-4 xl:grid-cols-3 xl:gap-4 2xl:gap-7.5'>
                 {devices.map((device, index) => (
                     <DeviceCard title={device.title}
                                 description={device.description}
