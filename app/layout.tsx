@@ -5,6 +5,8 @@ import "./globals.css";
 import {ThemeProvider} from "@/providers/theme-provider";
 import {ReactNode} from "react";
 import {Header} from "@/widgets/Header/Header";
+import { Cta } from "@/widgets/CTA/Cta";
+import {Footer} from "@/widgets/Footer/Footer";
 
 const manrope = Manrope({
     variable: "--font-manrope",
@@ -36,6 +38,8 @@ export default function RootLayout({
       >
           <Header/>
           {children}
+          <Cta/>
+          <Footer/>
       </ThemeProvider>
       </body>
     </html>
