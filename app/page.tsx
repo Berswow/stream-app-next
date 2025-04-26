@@ -3,8 +3,8 @@ import {DevicesList} from "@/widgets/Home/Devices/DevicesList";
 import {FaqList} from "@/widgets/Home/Faq/FaqList";
 import {SubscriptionPlan} from "@/widgets/Home/Subscription/SubscriptionPlan";
 import {Cta} from "@/widgets/CTA/Cta";
-import {CtaBody} from "@/widgets/CTA/CtaBody";
 import React from "react";
+import {Footer} from "@/widgets/Footer/Footer";
 
 export default function Home() {
     return (
@@ -17,6 +17,7 @@ export default function Home() {
                     <FaqList/>
                     <SubscriptionPlan/>
                     <Cta/>
+                    <Footer/>
                 </div>
             </div>
         </div>
