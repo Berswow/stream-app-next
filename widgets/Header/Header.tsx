@@ -5,11 +5,12 @@ import {BurgerMenu} from '@/shared/ui/components/BurgerMenu'
 import {Button} from '@/shared/ui/button'
 import {Bell, Search} from 'lucide-react'
 import {cn} from '@/shared/lib/utils'
-import {ModeToggle} from "@/shared/ui/components/mode-toggle";
+import Link from "next/link";
+// import {ModeToggle} from "@/shared/ui/components/mode-toggle";
 
 const tabs = [
     {id: 'home', label: 'Home', link: '/'},
-    {id: 'movies', label: 'Movies & Shows', link: '/movieshows'},
+    {id: 'movies', label: 'Movies & Shows', link: '/movies-shows'},
     {id: 'series', label: 'Support', link: '/support'},
     {id: 'favorites', label: 'Subscriptions', link: '/subscriptions'},
 ]
@@ -37,18 +38,19 @@ export const Header = () => {
                         const isActive = pathname === tab.link
 
                         return (
-                            <Button
-                                key={tab.id}
-                                className={cn(
-                                    'h-[45px] 2xl:h-[55px] transition-all',
-                                    {
-                                        'bg-primary text-white': isActive,
-                                        'bg-transparent': !isActive,
-                                    }
-                                )}
-                            >
-                                {tab.label}
-                            </Button>
+                            <Link key={tab.id} href={tab.link}>
+                                <Button
+                                    className={cn(
+                                        'h-[45px] 2xl:h-[55px] transition-all',
+                                        {
+                                            'bg-primary text-white': isActive,
+                                            'bg-transparent': !isActive,
+                                        }
+                                    )}
+                                >
+                                    {tab.label}
+                                </Button>
+                            </Link>
                         )
                     })}
                 </div>
