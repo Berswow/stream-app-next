@@ -7,14 +7,14 @@ import React from "react";
 export default function Home() {
     return (
         <div>
-            <div>
+            <div className='relative -mt-23 -z-20'>
                 <HeroBackground/>
                 <HeroTitle/>
-                <div>
-                    <DevicesList/>
-                    <FaqList/>
-                    <SubscriptionPlan/>
-                </div>
+            </div>
+            <div>
+                <DevicesList/>
+                <FaqList/>
+                <SubscriptionPlan/>
             </div>
         </div>
     );
