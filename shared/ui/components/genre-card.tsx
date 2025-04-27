@@ -1,6 +1,6 @@
 "use client"
 
-import React from "react";
+import {FC, useState} from "react";
 import {cn} from "@/shared/lib/utils";
 import {GenreCardSkeleton} from "@/shared/skeletons/GenreCardSkeleton";
 import {ArrowRight} from "lucide-react";
@@ -9,8 +9,8 @@ type Props = {
     className?: string;
 };
 
-export const GenreCard: React.FC<Props> = ({className}) => {
-    const [isCard, setIsCard] = React.useState(true);
+export const GenreCard: FC<Props> = ({className}) => {
+    const [isCard, setIsCard] = useState(true);
 
     return (
         <div className={cn("", className)}>
@@ -31,20 +31,6 @@ export const GenreCard: React.FC<Props> = ({className}) => {
 
                 </div>
             }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
         </div>
     );
 };

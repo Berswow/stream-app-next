@@ -1,7 +1,7 @@
 import React from "react";
 import {cn} from "@/shared/lib/utils";
 import {HomeTitle} from "@/shared/ui/components/home-title";
-import {PlanCard} from "@/shared/ui/components/plan-card";
+import {SubscriptionCard} from "@/shared/ui/components/subscription-card";
 
 type Props = {
     className?: string;
@@ -22,7 +22,7 @@ export const SubscriptionPlan: React.FC<Props> = ({className}) => {
             />
             <div className='flex flex-col gap-5 xl:flex-row justify-between 2xl:gap-7.5'>
                 {plansData.map((plan) => (
-                    <PlanCard key={plan.id} className='flex-1' plan={plan.plan} description={plan.description} monthlyPrice={plan.monthlyPrice}/>
+                    <SubscriptionCard key={plan.id} className='flex-1' plan={plan.plan} description={plan.description} monthlyPrice={plan.monthlyPrice}/>
                 ))}
             </div>
         </div>

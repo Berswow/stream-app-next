@@ -10,7 +10,7 @@ type Props = {
     annualPrice?: number;
 };
 
-export const PlanCard: React.FC<Props> = ({className, plan, annualPrice, monthlyPrice, description}) => {
+export const SubscriptionCard: React.FC<Props> = ({className, plan, annualPrice, monthlyPrice, description}) => {
     return (
         <div className={cn("flex flex-col gap-7.5 p-6 bg-neutral-800 rounded-2xl md:p-10 md:gap-10 2xl:p-12.5 2xl:gap-12.5", className)}>
             <div className='flex flex-col gap-2.5 md:gap-3 2xl:gap-4'>
