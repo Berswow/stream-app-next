@@ -10,7 +10,7 @@ type Props = {
     className?: string;
 };
 
-export const NowPlayingMovies: React.FC<Props> = ({className}) => {
+export const TrendingShows: React.FC<Props> = ({className}) => {
     const [progress, setProgress] = useState(0);
     const [emblaRef, emblaApi] = useEmblaCarousel({ align: "start" });
 

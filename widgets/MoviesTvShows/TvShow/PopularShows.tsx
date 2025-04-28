@@ -1,16 +1,16 @@
 "use client"
 
-import React, {useCallback, useEffect, useState} from "react";
-import {cn} from "@/shared/lib/utils";
+import {useState, useCallback, FC, useEffect} from "react";
 import useEmblaCarousel from "embla-carousel-react";
-import {Progress} from "@/shared/ui/progress";
-import {XlCard} from "@/shared/ui/components/xl-card";
+import { Progress } from "@/shared/ui/progress";
+import { cn } from "@/shared/lib/utils";
+import {GenreCard} from "@/shared/ui/components/genre-card";
 
 type Props = {
     className?: string;
 };
 
-export const NowPlayingMovies: React.FC<Props> = ({className}) => {
+export const PopularShows: FC<Props> = ({ className }) => {
     const [progress, setProgress] = useState(0);
     const [emblaRef, emblaApi] = useEmblaCarousel({ align: "start" });
 
@@ -38,7 +38,7 @@ export const NowPlayingMovies: React.FC<Props> = ({className}) => {
                         <div
                             key={index} className="basis-1/3 md:basis-1/4 lg:basis-1/5 inline-flex p-0"
                         >
-                            <XlCard />
+                            <GenreCard />
                         </div>
                     ))}
                 </div>
