@@ -5,6 +5,7 @@ import {cn} from "@/shared/lib/utils";
 import useEmblaCarousel from "embla-carousel-react";
 import {Progress} from "@/shared/ui/progress";
 import {XlCard} from "@/shared/ui/components/xl-card";
+import {MoviesShowsTitle} from "@/shared/ui/components/movies-shows-title";
 
 type Props = {
     className?: string;
@@ -31,7 +32,8 @@ export const TrendingShows: React.FC<Props> = ({className}) => {
     }, [emblaApi, onScroll]);
 
     return (
-        <div className={cn("my-container space-y-4", className)}>
+        <div className={cn("my-container", className)}>
+            <MoviesShowsTitle title='Trending Shows Now'/>
             <div className="overflow-hidden" ref={emblaRef}>
                 <div className="flex gap-4">
                     {Array.from({ length: 19 }).map((_, index) => (
@@ -44,7 +46,7 @@ export const TrendingShows: React.FC<Props> = ({className}) => {
                 </div>
             </div>
 
-            <Progress value={progress} className="mx-auto max-w-1/5 h-2" />
+            <Progress value={progress} className="mx-auto max-w-1/5 h-2 mt-4" />
         </div>
     );
 };

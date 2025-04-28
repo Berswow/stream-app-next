@@ -5,6 +5,7 @@ import {cn} from "@/shared/lib/utils";
 import {MdCard} from "@/shared/ui/components/md-Card";
 import useEmblaCarousel from "embla-carousel-react";
 import {Progress} from "@/shared/ui/progress";
+import {MoviesShowsTitle} from "@/shared/ui/components/movies-shows-title";
 
 type Props = {
     className?: string;
@@ -32,6 +33,7 @@ export const UpcomingMovies: React.FC<Props> = ({className}) => {
 
     return (
         <div className={cn("my-container space-y-4", className)}>
+            <MoviesShowsTitle title='Upcoming'/>
             <div className="overflow-hidden" ref={emblaRef}>
                 <div className="flex gap-4">
                     {Array.from({ length: 19 }).map((_, index) => (

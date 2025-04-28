@@ -16,11 +16,12 @@ export default function MoviesTvShows()  {
             <UpcomingMovies/>
             <NowPlayingMovies/>
 
+            <hr className='border-3'/>
+
             <PopularShows/>
             <TrendingShows/>
             <AiringToday/>
             <OnTheAir/>
-
         </>
     );
 };
