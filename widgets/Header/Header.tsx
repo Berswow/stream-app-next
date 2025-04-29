@@ -6,7 +6,7 @@ import {Button} from '@/shared/ui/button'
 import {Bell, Search} from 'lucide-react'
 import {cn} from '@/shared/lib/utils'
 import Link from "next/link";
-// import {ModeToggle} from "@/shared/ui/components/mode-toggle";
+// import {ThemeToggle} from "@/shared/ui/components/mode-toggle";
 
 const tabs = [
     {id: 'home', label: 'Home', link: '/'},
@@ -60,7 +60,7 @@ export const Header = () => {
             <div className="hidden md:flex gap-5 items-center justify-end">
                 <Search size={30}/>
                 <Bell size={30}/>
-                {/*<ModeToggle/>*/}
+                {/*<ThemeToggle/>*/}
             </div>
 
             {/* Бургер для mobile */}

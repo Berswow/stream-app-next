@@ -1,9 +1,9 @@
-"use client"
+import {SubscriptionsMobile} from "@/widgets/Subscriptions/SubscriptionsMobile";
 
 export default function Subscriptions() {
     return (
-        <>
-            <h1>Subscriptions</h1>
-        </>
+        <div className='my-container'>
+            <SubscriptionsMobile/>
+        </div>
     );
 };

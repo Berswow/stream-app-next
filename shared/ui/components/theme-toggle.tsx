@@ -9,7 +9,7 @@ type Props = {
     className?: string;
 };
 
-export const ModeToggle: React.FC<Props> = ({className}) => {
+export const ThemeToggle: React.FC<Props> = ({className}) => {
     const { setTheme } = useTheme()
 
     return (
