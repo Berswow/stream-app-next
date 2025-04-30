@@ -37,9 +37,11 @@ export default function RootLayout({
           disableTransitionOnChange
       >
           <Header/>
-          {children}
-          <Cta/>
-          <Footer/>
+          <div className='flex flex-col gap-20 lg:gap-30 2xl:gap-37.5'>
+              {children}
+              <Cta/>
+              <Footer/>
+          </div>
       </ThemeProvider>
       </body>
     </html>

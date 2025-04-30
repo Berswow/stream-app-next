@@ -11,7 +11,7 @@ export default function Home() {
                 <HeroBackground/>
                 <HeroTitle/>
             </div>
-            <div>
+            <div className='flex flex-col gap-20 mt-25 lg:gap-30 lg:mt-37.5 2xl:gap-37.5 2xl:mt-50'>
                 <DevicesList/>
                 <FaqList/>
                 <SubscriptionPlan/>
