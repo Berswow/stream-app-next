@@ -10,35 +10,37 @@ type Props = {
 export const SubscriptionsTable: FC<Props> = ({className}) => {
     return (
         <div className={cn("", className)}>
-            <div className='flex flex-col gap-20'>
-                <div className='flex justify-between items-center gap-24'>
-                    <div className='flex flex-col gap-3.5'>
-                        <h2>Compare our plans and find the right one for you</h2>
-                        <p style={{color: "var(--grey-60)"}}>CineStreamBox offers three different plans to fit your needs:
-                            Basic, Standard, and Premium. Compare the features of each plan and choose the one that's right
-                            for you.</p>
+            <div className='flex flex-col gap-15 2xl:gap-20'>
+                <div className='flex flex-col gap-2.5 2xl:gap-3.5'>
+                    <h2 className='font-bold text-4xl 2xl:text-5xl'>Compare our plans and find the right one for you</h2>
+                    <div>
+                        <p className='text-base text-neutral-500 2xl:text-lg'>StreamVibe offers three different plans to fit your needs:
+                            Basic, Standard, and Premium. Compare
+                            the features of each plan and choose the one that&#39;s right for you.</p>
                     </div>
                 </div>
-                <Table className='border border-neutral-700'>
-                    <TableHeader className='h-[90px] text-[20px] bg-neutral-950 border border-neutral-700'>
-                        <TableRow className='border border-neutral-700'>
-                            <TableHead className='text-white border border-neutral-700 p-7.5'>Features</TableHead>
-                            <TableHead className='text-white border border-neutral-700 p-7.5'>Basic</TableHead>
-                            <TableHead className='text-white border border-neutral-700 p-7.5'>Standard</TableHead>
-                            <TableHead className='text-white border border-neutral-700 p-7.5'>Premium</TableHead>
+
+
+                <Table>
+                    <TableHeader className='min-h-[75px] font-semibold text-lg bg-neutral-950 border 2xl:min-h-[90px] 2xl:text-xl'>
+                        <TableRow>
+                            <TableHead className='text-white border border-neutral-800 p-6 2xl:p-7.5'>Features</TableHead>
+                            <TableHead className='text-white border border-neutral-800 p-6 2xl:p-7.5'>Basic</TableHead>
+                            <TableHead className='text-white border border-neutral-800 p-6 2xl:p-7.5'>Standard</TableHead>
+                            <TableHead className='text-white border border-neutral-800 p-6 2xl:p-7.5'>Premium</TableHead>
                         </TableRow>
                     </TableHeader>
-                    <TableBody className='text-[20px]'>
+                    <TableBody className='font-medium text-base 2xl:text-lg'>
                         {table.map((item, i) => (
-                            <TableRow className='h-[90px]' key={i}>
+                            <TableRow className='min-h-[72px] 2xl:min-h-[87px]' key={i}>
                                 <TableCell
-                                    className='whitespace-normal break-words border border-neutral-700 p-7.5 text-neutral-400'>{item.name}</TableCell>
+                                    className='whitespace-normal break-words border border-neutral-800 p-6 text-neutral-500 2xl:p-7.5'>{item.name}</TableCell>
                                 <TableCell
-                                    className='whitespace-normal break-words border border-neutral-700 p-7.5 text-neutral-400'>{item.basic}</TableCell>
+                                    className='whitespace-normal break-words border border-neutral-800 p-6 text-neutral-500 2xl:p-7.5'>{item.basic}</TableCell>
                                 <TableCell
-                                    className='whitespace-normal break-words border border-neutral-700 p-7.5 text-neutral-400'>{item.standard}</TableCell>
+                                    className='whitespace-normal break-words border border-neutral-800 p-6 text-neutral-500 2xl:p-7.5'>{item.standard}</TableCell>
                                 <TableCell
-                                    className='whitespace-normal break-words border border-neutral-700 p-7.5 text-neutral-400'>{item.premium}</TableCell>
+                                    className='whitespace-normal break-words border border-neutral-800 p-6 text-neutral-500 2xl:p-7.5'>{item.premium}</TableCell>
                             </TableRow>
                         ))}
                     </TableBody>
