@@ -1,2 +1,2 @@
-export {HeroBackground} from './HeroBackground';
+export {Hero} from './Hero';
 export {HeroBody} from './HeroBody';

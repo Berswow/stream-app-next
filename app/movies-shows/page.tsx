@@ -1,5 +1,5 @@
 import React from "react";
-import {HeroBackground, HeroBody} from "@/widgets/MoviesTvShows/Hero";
+import {Hero} from "@/widgets/MoviesTvShows/Hero";
 import {TypeToggle} from "@/shared/ui/components/type-toggle";
 import {NowPlayingMovies, PopularMovies, TrendingMovies, UpcomingMovies} from "@/widgets/MoviesTvShows/Movies";
 import {AiringToday, OnTheAir, PopularShows, TrendingShows} from "@/widgets/MoviesTvShows/TvShow";
@@ -8,8 +8,7 @@ import {AiringToday, OnTheAir, PopularShows, TrendingShows} from "@/widgets/Movi
 export default function MoviesTvShows()  {
     return (
         <>
-            <HeroBackground/>
-            <HeroBody/>
+            <Hero/>
             <TypeToggle className='lg:hidden'/>
             <PopularMovies/>
             <TrendingMovies/>
