@@ -39,7 +39,6 @@ export const SupportForm: FC<Props> = ({className}) => {
 
     const handleOnSubmit = (data: z.infer<typeof formSchema>) => {
         toast("Support message sent!");
-        console.log(data);
     }
 
     return (

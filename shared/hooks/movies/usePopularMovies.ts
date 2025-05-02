@@ -4,11 +4,10 @@ import {MovieResponse} from "@/shared/types/Movie/MovieBaseInterface";
 
 const fetchPopularMovies = async (page: number = 1): Promise<MovieResponse> => {
     const response = await tmdbApi.get('movie/popular', {
-        params: { page }, // Параметр страницы для пагинации
+        params: { page }
     });
     return response.data;
 };
-
 
 export const useGetPopularMovies = (page: number = 1) => {
     return useQuery<MovieResponse, Error>({

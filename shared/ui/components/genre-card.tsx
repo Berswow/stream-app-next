@@ -16,7 +16,7 @@ export const GenreCard: FC<Props> = ({className}) => {
         <div className={cn("", className)}>
             {!isCard ? <GenreCardSkeleton/> :
 
-                <div className='w-[181] h-[201] lg:w-[224px] lg:h-[259px] 2xl:w-[275px] 2xl:h-[342px] flex flex-col items-center justify-center bg-neutral-800 rounded-xl border-neutral-700 border-1'>
+                <div className='w-[181px] h-[201px] lg:w-[224px] lg:h-[259px] 2xl:w-[275px] 2xl:h-[342px] flex flex-col items-center justify-center bg-neutral-800 rounded-xl border-neutral-700 border-1'>
                     <div>
                         <div className='grid grid-cols-2 grid-rows-2 gap-1.25 shrink-0 grow-0'>
                             {[...new Array(4)].map((_, index) => (

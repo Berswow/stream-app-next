@@ -6,6 +6,8 @@ import {MdCard} from "@/shared/ui/components/md-Card";
 import useEmblaCarousel from "embla-carousel-react";
 import {Progress} from "@/shared/ui/progress";
 import {MoviesShowsTitle} from "@/shared/ui/components/movies-shows-title";
+import {useGetUpcomingMovies} from "@/shared/hooks/movies/useUpcomingMovies";
+import {MdCardSkeleton} from "@/shared/skeletons/MdCardSkeleton";
 
 type Props = {
     className?: string;
@@ -14,6 +16,10 @@ type Props = {
 export const UpcomingMovies: React.FC<Props> = ({className}) => {
     const [progress, setProgress] = useState(0);
     const [emblaRef, emblaApi] = useEmblaCarousel({ align: "start" });
+
+    const {data, isLoading} = useGetUpcomingMovies()
+
+    const moviesList = data?.results || []
 
     const onScroll = useCallback(() => {
         if (!emblaApi) return;
@@ -36,13 +42,22 @@ export const UpcomingMovies: React.FC<Props> = ({className}) => {
             <MoviesShowsTitle title='Upcoming'/>
             <div className="overflow-hidden" ref={emblaRef}>
                 <div className="flex gap-4">
-                    {Array.from({ length: 19 }).map((_, index) => (
-                        <div
-                            key={index} className="basis-1/3 md:basis-1/4 lg:basis-1/5 inline-flex p-0"
-                        >
-                            <MdCard />
-                        </div>
-                    ))}
+                    {isLoading ? (
+                        [...new Array(5)].map((_, index) => (
+                            <div key={index} className="basis-1/3 md:basis-1/4 lg:basis-1/5 inline-flex p-0">
+                                <MdCardSkeleton/>
+                            </div>
+                        ))
+                    ) : (
+                        moviesList.map((movie) => (
+                            <div
+                                key={movie.id}
+                                className="basis-1/3 md:basis-1/4 lg:basis-1/5 inline-flex p-0"
+                            >
+                                <MdCard movie={movie}/>
+                            </div>
+                        ))
+                    )}
                 </div>
             </div>
 

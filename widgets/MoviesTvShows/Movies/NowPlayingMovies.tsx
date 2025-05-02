@@ -6,6 +6,8 @@ import useEmblaCarousel from "embla-carousel-react";
 import {Progress} from "@/shared/ui/progress";
 import {XlCard} from "@/shared/ui/components/xl-card";
 import {MoviesShowsTitle} from "@/shared/ui/components/movies-shows-title";
+import {useGetNowPlayingMovies} from "@/shared/hooks/movies/useNowPlayingMovies";
+import {XlCardSkeleton} from "@/shared/skeletons/XlCardSkeleton";
 
 type Props = {
     className?: string;
@@ -14,6 +16,9 @@ type Props = {
 export const NowPlayingMovies: React.FC<Props> = ({className}) => {
     const [progress, setProgress] = useState(0);
     const [emblaRef, emblaApi] = useEmblaCarousel({ align: "start" });
+
+    const {data, isLoading} = useGetNowPlayingMovies()
+    const moviesList = data?.results || []
 
     const onScroll = useCallback(() => {
         if (!emblaApi) return;
@@ -36,13 +41,22 @@ export const NowPlayingMovies: React.FC<Props> = ({className}) => {
             <MoviesShowsTitle title='Now Playing'/>
             <div className="overflow-hidden" ref={emblaRef}>
                 <div className="flex gap-4">
-                    {Array.from({ length: 19 }).map((_, index) => (
-                        <div
-                            key={index} className="basis-1/3 md:basis-1/4 lg:basis-1/5 inline-flex p-0"
-                        >
-                            <XlCard />
-                        </div>
-                    ))}
+                    {isLoading ? (
+                        [...new Array(5)].map((_, index) => (
+                            <div key={index} className="basis-1/3 md:basis-1/4 lg:basis-1/5 inline-flex p-0">
+                                <XlCardSkeleton/>
+                            </div>
+                        ))
+                    ) : (
+                        moviesList.map((movie) => (
+                            <div
+                                key={movie.id}
+                                className="basis-1/3 md:basis-1/4 lg:basis-1/5 inline-flex p-0"
+                            >
+                                <XlCard movie={movie}/>
+                            </div>
+                        ))
+                    )}
                 </div>
             </div>
 

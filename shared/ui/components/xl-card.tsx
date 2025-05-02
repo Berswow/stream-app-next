@@ -1,24 +1,29 @@
-import {FC, useState} from "react";
+import {FC} from "react";
 import {cn} from "@/shared/lib/utils";
 import {Clock3, Star} from "lucide-react";
-import {XlCardSkeleton} from "@/shared/skeletons/XlCardSkeleton";
+import {MovieInterface} from "@/shared/types/Movie/MovieBaseInterface";
+import Image from "next/image";
 
 type Props = {
     className?: string;
+    movie?: MovieInterface;
 };
 
-export const XlCard: FC<Props> = ({className}) => {
-    const [isCard, setIsCard] = useState(true);
+export const XlCard: FC<Props> = ({className, movie}) => {
 
     return (
         <div className={cn("", className)}>
-            {!isCard ? <XlCardSkeleton/> :
-
                 <div
-                    className='w-[231] h-[303] lg:w-[285px] lg:h-[404px] 2xl:w-[359px] 2xl:h-[500px] flex flex-col items-center justify-between p-3 lg:p-4 2xl:p-5 bg-neutral-800 rounded-xl border-neutral-700 border-1'>
+                    className='w-[231px] h-[303px] lg:w-[285px] lg:h-[404px] 2xl:w-[359px] 2xl:h-[500px] flex flex-col items-center justify-between p-3 lg:p-4 2xl:p-5 bg-neutral-800 rounded-xl border-neutral-700 border-1'>
                     <div className='flex flex-col justify-between gap-3 lg:gap-4 2xl:gap-5'>
-                        <div>
-                            <div className='w-[207px] h-[235px] rounded-xl bg-neutral-500 lg:w-[253px] lg:h-[324px] 2xl:w-[319px] 2xl:h-[404px]'/>
+                        <div className='relative w-[207px] h-[235px] rounded-xl bg-neutral-500 lg:w-[253px] lg:h-[324px] 2xl:w-[319px] 2xl:h-[404px]'>
+                            <Image
+                                src={`https://image.tmdb.org/t/p/w500${movie?.poster_path}`}
+                                alt={movie?.title || "Movie poster"}
+                                sizes="(max-width: 768px) 207px, (max-width: 1024px) 253px, 319px"
+                                className='object-cover rounded-xl'
+                                fill
+                            />
                         </div>
                         <div className='flex justify-between items-center'>
                             <div className='flex items-center gap-1 px-1.5 py-1 bg-neutral-900 rounded-full border-neutral-700 border-1'>
@@ -36,9 +41,7 @@ export const XlCard: FC<Props> = ({className}) => {
                             </div>
                         </div>
                     </div>
-
                 </div>
-            }
         </div>
     );
 };
