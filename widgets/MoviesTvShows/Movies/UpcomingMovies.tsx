@@ -2,7 +2,7 @@
 
 import React, {useCallback, useEffect, useState} from "react";
 import {cn} from "@/shared/lib/utils";
-import {MdCard} from "@/shared/ui/components/md-Card";
+import {SmCard} from "@/shared/ui/components/sm-Card";
 import useEmblaCarousel from "embla-carousel-react";
 import {Progress} from "@/shared/ui/progress";
 import {MoviesShowsTitle} from "@/shared/ui/components/movies-shows-title";
@@ -54,7 +54,7 @@ export const UpcomingMovies: React.FC<Props> = ({className}) => {
                                 key={movie.id}
                                 className="basis-1/3 md:basis-1/4 lg:basis-1/5 inline-flex p-0"
                             >
-                                <MdCard movie={movie}/>
+                                <SmCard movie={movie}/>
                             </div>
                         ))
                     )}

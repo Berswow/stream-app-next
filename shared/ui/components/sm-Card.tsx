@@ -9,7 +9,7 @@ type Props = {
     movie?: MovieInterface
 };
 
-export const MdCard: FC<Props> = ({className, movie}) => {
+export const SmCard: FC<Props> = ({className, movie}) => {
 
     return (
         <div className={cn("", className)}>

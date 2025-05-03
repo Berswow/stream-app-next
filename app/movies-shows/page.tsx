@@ -1,5 +1,5 @@
 import React from "react";
-import {Hero} from "@/widgets/MoviesTvShows/Hero";
+import {Hero} from "@/widgets/MoviesTvShows/Hero/Hero";
 import {TypeToggle} from "@/shared/ui/components/type-toggle";
 import {NowPlayingMovies, PopularMovies, TrendingMovies, UpcomingMovies} from "@/widgets/MoviesTvShows/Movies";
 import {AiringToday, OnTheAir, PopularShows, TrendingShows} from "@/widgets/MoviesTvShows/TvShow";
