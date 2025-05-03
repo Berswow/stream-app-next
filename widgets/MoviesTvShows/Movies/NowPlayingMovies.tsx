@@ -53,7 +53,7 @@ export const NowPlayingMovies: React.FC<Props> = ({className}) => {
                                 key={movie.id}
                                 className="basis-1/3 md:basis-1/4 lg:basis-1/5 inline-flex p-0"
                             >
-                                <XlCard movie={movie}/>
+                                <XlCard item={movie}/>
                             </div>
                         ))
                     )}

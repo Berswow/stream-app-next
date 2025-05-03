@@ -3,13 +3,15 @@ import {cn} from "@/shared/lib/utils";
 import {Clock3, Star} from "lucide-react";
 import {MovieInterface} from "@/shared/types/Movie/MovieBaseInterface";
 import Image from "next/image";
+import {TvShowInterface} from "@/shared/types/Show/TvShowBaseInterface";
 
 type Props = {
     className?: string;
-    movie?: MovieInterface;
+    item?: MovieInterface | TvShowInterface;
 };
 
-export const XlCard: FC<Props> = ({className, movie}) => {
+export const XlCard: FC<Props> = ({className, item}) => {
+    const title = item ? ('title' in item ? item.title : item.name) : "Untitled";
 
     return (
         <div className={cn("", className)}>
@@ -18,8 +20,8 @@ export const XlCard: FC<Props> = ({className, movie}) => {
                     <div className='flex flex-col justify-between gap-3 lg:gap-4 2xl:gap-5'>
                         <div className='relative w-[207px] h-[235px] rounded-xl bg-neutral-500 lg:w-[253px] lg:h-[324px] 2xl:w-[319px] 2xl:h-[404px]'>
                             <Image
-                                src={`https://image.tmdb.org/t/p/w500${movie?.poster_path}`}
-                                alt={movie?.title || "Movie poster"}
+                                src={`https://image.tmdb.org/t/p/w500${item?.poster_path}`}
+                                alt={title || "Movie poster"}
                                 sizes="(max-width: 768px) 207px, (max-width: 1024px) 253px, 319px"
                                 className='object-cover rounded-xl'
                                 fill

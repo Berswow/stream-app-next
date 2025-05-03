@@ -1,4 +1,4 @@
-export interface ApiResponse {
+export interface TvShowResponse {
     page: number;
     results: TvShowInterface[];
     total_pages: number;
