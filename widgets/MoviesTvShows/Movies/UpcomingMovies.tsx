@@ -8,6 +8,7 @@ import {Progress} from "@/shared/ui/progress";
 import {MoviesShowsTitle} from "@/shared/ui/components/movies-shows-title";
 import {useGetUpcomingMovies} from "@/shared/hooks/movies/useUpcomingMovies";
 import {MdCardSkeleton} from "@/shared/skeletons/MdCardSkeleton";
+import Link from "next/link";
 
 type Props = {
     className?: string;
@@ -40,7 +41,7 @@ export const UpcomingMovies: React.FC<Props> = ({className}) => {
     return (
         <div className={cn("my-container space-y-4", className)}>
             <MoviesShowsTitle title='Upcoming'/>
-            <div className="overflow-hidden" ref={emblaRef}>
+            <div className="overflow-hidden p-10" ref={emblaRef}>
                 <div className="flex gap-4">
                     {isLoading ? (
                         [...new Array(5)].map((_, index) => (
@@ -50,12 +51,16 @@ export const UpcomingMovies: React.FC<Props> = ({className}) => {
                         ))
                     ) : (
                         moviesList.map((movie) => (
-                            <div
-                                key={movie.id}
-                                className="basis-1/3 md:basis-1/4 lg:basis-1/5 inline-flex p-0"
-                            >
-                                <SmCard movie={movie}/>
-                            </div>
+                            <Link href={`/movies/${movie.id}`} passHref key={movie.id} prefetch={false}>
+                                <div
+                                    key={movie.id}
+                                    className="basis-1/3 md:basis-1/4 lg:basis-1/5 inline-flex rounded-xl
+             transition-all duration-300
+             hover:scale-105 hover:shadow-[0px_5px_15px_5px_#000000] active:scale-95"
+                                >
+                                    <SmCard movie={movie}/>
+                                </div>
+                            </Link>
                         ))
                     )}
                 </div>

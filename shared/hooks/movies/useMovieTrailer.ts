@@ -20,6 +20,7 @@ export const useGetMovieTrailer = (movieId: number) => {
                 (v) => v.type === 'Trailer' && v.site === 'YouTube'
             );
             return trailer?.key ?? null;
-        }
+        },
+        enabled: !isNaN(movieId) && movieId > 0
     });
 }
