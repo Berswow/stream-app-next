@@ -1,7 +1,42 @@
-export default function TvShowsDetailed() {
+"use client"
+
+import {DescriptionInfo} from "@/widgets/test/DescriptionInfo";
+import {DetailsInfo} from "@/widgets/test/DetailsInfo";
+import {CastInfo} from "@/widgets/test/CastInfo";
+import {ReviewsInfo} from "@/widgets/test/ReviewsInfo";
+import {useParams} from "next/navigation";
+import {HeroInfo} from "@/widgets/test/HeroInfo";
+import {useGetTvShowDetailed} from "@/shared/hooks/tvShows/useTvShowDetailed";
+import {useGetTvShowCast} from "@/shared/hooks/tvShows/useTvShowCast";
+
+export default function TvShowsDetailed(){
+    const { id } = useParams();
+    const tvShowId = Number(id);
+
+    const {data: tvShow} = useGetTvShowDetailed(tvShowId);
+    const {data: cast} = useGetTvShowCast(tvShowId)
+
     return (
-        <>
-            <h1>TvShows Detailed</h1>
-        </>
+        <div className='flex flex-col gap-15 lg:gap-20 2xl:gap-25'>
+            <HeroInfo item={tvShow}/>
+
+            <div className="my-container flex flex-col gap-5 md:hidden">
+                <DescriptionInfo item={tvShow} />
+                <DetailsInfo item={tvShow} cast={cast} />
+                <CastInfo cast={cast} />
+                <ReviewsInfo itemId={tvShowId} type={'tv'}/>
+            </div>
+
+            <div className="my-container hidden md:flex flex-row justify-between gap-5">
+                <div className='flex flex-col gap-5 w-2/3'>
+                    <DescriptionInfo item={tvShow} />
+                    <CastInfo cast={cast} />
+                    <ReviewsInfo itemId={tvShowId} type={'tv'}/>
+                </div>
+                <div className='w-1/3'>
+                    <DetailsInfo item={tvShow} cast={cast} />
+                </div>
+            </div>
+        </div>
     );
 };

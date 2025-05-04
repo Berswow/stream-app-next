@@ -2,14 +2,15 @@ import { FC } from "react";
 import { cn } from "@/shared/lib/utils";
 import { MovieDetailed } from "@/shared/types/Movie/MovieDetailInterface";
 import { Skeleton } from "@/shared/ui/skeleton";
+import {TvShowDetailed} from "@/shared/types/Show/TvShowDetailInterface";
 
 type Props = {
     className?: string;
-    movie?: MovieDetailed;
+    item?: MovieDetailed | TvShowDetailed;
 };
 
-export const DescriptionInfo: FC<Props> = ({ className, movie }) => {
-    const isLoading = !movie?.overview;
+export const DescriptionInfo: FC<Props> = ({ className, item }) => {
+    const isLoading = !item?.overview;
 
     return (
         <div
@@ -31,7 +32,7 @@ export const DescriptionInfo: FC<Props> = ({ className, movie }) => {
                     </>
                 ) : (
                     <p className="font-medium text-sm lg:text-base 2xl:text-lg">
-                        {movie.overview}
+                        {item.overview}
                     </p>
                 )}
             </div>

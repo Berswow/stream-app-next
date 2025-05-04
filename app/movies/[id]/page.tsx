@@ -19,23 +19,23 @@ export default function MovieDetailed(){
 
     return (
         <div className='flex flex-col gap-15 lg:gap-20 2xl:gap-25'>
-            <HeroInfo movie={movie}/>
+            <HeroInfo item={movie}/>
 
             <div className="my-container flex flex-col gap-5 md:hidden">
-                <DescriptionInfo movie={movie} />
-                <DetailsInfo movie={movie} cast={cast} />
+                <DescriptionInfo item={movie} />
+                <DetailsInfo item={movie} cast={cast} />
                 <CastInfo cast={cast} />
-                <ReviewsInfo movieId={movieId} />
+                <ReviewsInfo itemId={movieId} type={'movie'}/>
             </div>
 
             <div className="my-container hidden md:flex flex-row justify-between gap-5">
                 <div className='flex flex-col gap-5 w-2/3'>
-                    <DescriptionInfo movie={movie} />
+                    <DescriptionInfo item={movie} />
                     <CastInfo cast={cast} />
-                    <ReviewsInfo movieId={movieId} />
+                    <ReviewsInfo itemId={movieId} type={'movie'}/>
                 </div>
                 <div className='w-1/3'>
-                    <DetailsInfo movie={movie} cast={cast} />
+                    <DetailsInfo item={movie} cast={cast} />
                 </div>
             </div>
         </div>

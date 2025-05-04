@@ -8,14 +8,16 @@ import {formatDate} from "@/shared/lib/formatDate";
 import Image from "next/image";
 import {ParsedCreditsResponse} from "@/shared/hooks/movies/useMovieCast";
 import {Skeleton} from "@/shared/ui/skeleton";
+import {TvShowDetailed} from "@/shared/types/Show/TvShowDetailInterface";
+import {getReleaseDate} from "@/shared/lib/getReleaseDate";
 
 type Props = {
     className?: string;
-    movie?: MovieDetailed;
+    item?: MovieDetailed | TvShowDetailed;
     cast?: ParsedCreditsResponse;
 };
 
-export const DetailsInfo: FC<Props> = ({className, movie, cast}) => {
+export const DetailsInfo: FC<Props> = ({className, item, cast}) => {
 
     const directors = cast?.crew.directors ?? []
     const producers = cast?.crew.producers ?? []
@@ -23,7 +25,7 @@ export const DetailsInfo: FC<Props> = ({className, movie, cast}) => {
     return (
         <div className={cn("flex flex-col gap-5 p-6 rounded-2xl border-neutral-700 border-1 bg-neutral-800 lg:p-10 lg:gap-6 2xl:p-12.5 2xl:gap-7.5", className)}>
         {/*  Released Date  */}
-            {!movie ?
+            {!item ?
             <Skeleton className='w-full h-[382px] lg:h-[422px] 2xl:h-[512px] rounded-2xl bg-neutral-700'/>
                 : (
                     <>
@@ -32,7 +34,9 @@ export const DetailsInfo: FC<Props> = ({className, movie, cast}) => {
                                 <Calendar className='h-[15px] w-[15px] 2xl:w-[18px] 2xl:h-[18px]'/><h4 className='font-medium text-sm lg:text-base 2xl:text-lg'>Released Date</h4>
                             </div>
                             <div>
-                                <p className='font-semibold text-base lg:text-lg 2xl:text-xl'>{movie?.release_date ? formatDate(movie.release_date) : ""}</p>
+                                <p className='font-semibold text-base lg:text-lg 2xl:text-xl'>
+                                    {item ? formatDate(getReleaseDate(item) || "") : ""}
+                                </p>
                             </div>
                         </div>
 
@@ -43,7 +47,7 @@ export const DetailsInfo: FC<Props> = ({className, movie, cast}) => {
                                 <LayoutGrid className='h-[15px] w-[15px] 2xl:w-[18px] 2xl:h-[18px]'/><h4 className='font-medium text-sm lg:text-base 2xl:text-lg'>Genres</h4>
                             </div>
                             <div className='flex gap-2.5 flex-wrap'>
-                                {movie?.genres.map(genre => (
+                                {item?.genres.map(genre => (
                                     <div key={genre.id} className='flex items-center py-1.5 px-3 border-neutral-700 border-1 bg-neutral-900 rounded-md 2xl:py-2 2xl:px-3.5'>
                                         <p className='font-medium text-sm 2xl:text-lg'>{genre.name}</p>
                                     </div>

@@ -10,16 +10,16 @@ export interface ParsedCreditsResponse {
     };
 }
 
-const fetchMovieCast = async (id: number): Promise<CreditsResponse> => {
-    const response = await tmdbApi.get(`movie/${id}/credits`)
+const fetchTvShowCast = async (id: number): Promise<CreditsResponse> => {
+    const response = await tmdbApi.get(`tv/${id}/credits`)
     return response.data
 }
 
-export const useGetMovieCast = (id: number) => {
+export const useGetTvShowCast = (id: number) => {
     return useQuery<ParsedCreditsResponse, Error>({
-        queryKey: ['movieCast', id],
+        queryKey: ['tvShowCast', id],
         queryFn: async () => {
-            const data = await fetchMovieCast(id)
+            const data = await fetchTvShowCast(id)
             const directors = data.crew.filter(
                 (member) => member.job === 'Director'
             );

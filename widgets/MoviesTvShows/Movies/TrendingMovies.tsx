@@ -15,7 +15,7 @@ type Props = {
 };
 
 export const TrendingMovies: React.FC<Props> = ({className}) => {
-    const autoplay = useRef(Autoplay({ delay: 3000, stopOnInteraction: true }));
+    const autoplay = useRef(Autoplay({ delay: 4700, stopOnInteraction: true }));
     const [emblaRef] = useEmblaCarousel({ align: "start", startIndex: 1, loop: true, }, [autoplay.current]);
 
     const {data, isLoading} = useGetTrendingMovies();

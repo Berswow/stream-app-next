@@ -1,18 +1,19 @@
 import { FC } from "react";
 import { cn } from "@/shared/lib/utils";
-import { useGetMovieReviews } from "@/shared/hooks/movies/useMovieReviews";
 import { Skeleton } from "@/shared/ui/skeleton";
 import useEmblaCarousel from "embla-carousel-react";
+import {useGetReviews} from "@/shared/hooks/useReview";
 
 type Props = {
     className?: string;
-    movieId: number;
+    itemId: number;
+    type: "movie" | "tv";
 };
 
-export const ReviewsInfo: FC<Props> = ({ className, movieId }) => {
+export const ReviewsInfo: FC<Props> = ({ className, itemId, type }) => {
     const [emblaRef] = useEmblaCarousel({align: "start"});
 
-    const { data, isLoading } = useGetMovieReviews(movieId);
+    const { data, isLoading } = useGetReviews(type, itemId)
     const reviewsList = data?.results ?? [];
 
     return (
