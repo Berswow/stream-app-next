@@ -1,46 +1,39 @@
 "use client"
 
-import React, {useCallback, useEffect, useState} from "react";
+import React, {useRef} from "react";
 import {cn} from "@/shared/lib/utils";
 import useEmblaCarousel from "embla-carousel-react";
-import {Progress} from "@/shared/ui/progress";
 import {XlCard} from "@/shared/ui/components/xl-card";
 import {MoviesShowsTitle} from "@/shared/ui/components/movies-shows-title";
 import {useGetNowPlayingMovies} from "@/shared/hooks/movies/useNowPlayingMovies";
 import {XlCardSkeleton} from "@/shared/skeletons/XlCardSkeleton";
 import Link from "next/link";
+import Autoplay from "embla-carousel-autoplay";
 
 type Props = {
     className?: string;
 };
 
 export const NowPlayingMovies: React.FC<Props> = ({className}) => {
-    const [progress, setProgress] = useState(0);
-    const [emblaRef, emblaApi] = useEmblaCarousel({ align: "start" });
+    const autoplay = useRef(Autoplay({ delay: 3000, stopOnInteraction: true }));
+    const [emblaRef] = useEmblaCarousel({ align: "start", startIndex: 1, loop: true, }, [autoplay.current]);
 
     const {data, isLoading} = useGetNowPlayingMovies()
     const moviesList = data?.results || []
 
-    const onScroll = useCallback(() => {
-        if (!emblaApi) return;
-        const scrollProgress = emblaApi.scrollProgress();
-        setProgress(scrollProgress * 100);
-    }, [emblaApi]);
+    const handleMouseEnter = () => {
+        autoplay.current.stop();
+    };
 
-    useEffect(() => {
-        if (!emblaApi) return;
-        emblaApi.on("scroll", onScroll);
-        onScroll();
-
-        return () => {
-            emblaApi.off("scroll", onScroll);
-        };
-    }, [emblaApi, onScroll]);
+    const handleMouseLeave = () => {
+        autoplay.current.play();
+    };
 
     return (
         <div className={cn("my-container", className)}>
             <MoviesShowsTitle title='Now Playing'/>
-            <div className="overflow-hidden p-10" ref={emblaRef}>
+            <div className="overflow-hidden p-10" ref={emblaRef} onMouseEnter={handleMouseEnter}
+                 onMouseLeave={handleMouseLeave}>
                 <div className="flex gap-4">
                     {isLoading ? (
                         [...new Array(5)].map((_, index) => (
@@ -64,8 +57,6 @@ export const NowPlayingMovies: React.FC<Props> = ({className}) => {
                     )}
                 </div>
             </div>
-
-            <Progress value={progress} className="mx-auto max-w-1/5 h-2 mt-4" />
         </div>
     );
 };
