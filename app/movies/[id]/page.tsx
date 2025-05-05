@@ -1,13 +1,13 @@
 "use client"
 
-import {DescriptionInfo} from "@/widgets/test/DescriptionInfo";
-import {DetailsInfo} from "@/widgets/test/DetailsInfo";
-import {CastInfo} from "@/widgets/test/CastInfo";
-import {ReviewsInfo} from "@/widgets/test/ReviewsInfo";
+import {DescriptionInfo} from "@/widgets/CardDetails/DescriptionInfo";
+import {DetailsInfo} from "@/widgets/CardDetails/DetailsInfo";
+import {CastInfo} from "@/widgets/CardDetails/CastInfo";
+import {ReviewsInfo} from "@/widgets/CardDetails/ReviewsInfo";
 import {useParams} from "next/navigation";
 import {useGetMovieDetailed} from "@/shared/hooks/apiHooks/movies/useMovieDetailed";
 import {useGetMovieCast} from "@/shared/hooks/apiHooks/movies/useMovieCast";
-import {HeroInfo} from "@/widgets/test/HeroInfo";
+import {HeroInfo} from "@/widgets/CardDetails/HeroInfo";
 
 export default function MovieDetailed(){
     const { id } = useParams();
