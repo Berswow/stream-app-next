@@ -2,7 +2,7 @@
 
 import {FC} from "react";
 import {cn} from "@/shared/lib/utils";
-import {ParsedCreditsResponse} from "@/shared/hooks/movies/useMovieCast";
+import {ParsedCreditsResponse} from "@/shared/hooks/apiHooks/movies/useMovieCast";
 import useEmblaCarousel from "embla-carousel-react";
 import Image from "next/image";
 import {ImageOff} from "lucide-react";

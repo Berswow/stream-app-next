@@ -7,7 +7,7 @@ import {Progress} from "@/shared/ui/progress";
 import {XlCard} from "@/shared/ui/components/xl-card";
 import {MoviesShowsTitle} from "@/shared/ui/components/movies-shows-title";
 import {MdCardSkeleton} from "@/shared/skeletons/MdCardSkeleton";
-import {useGetOnTheAir} from "@/shared/hooks/tvShows/useOnTheAir";
+import {useGetOnTheAir} from "@/shared/hooks/apiHooks/tvShows/useOnTheAir";
 
 type Props = {
     className?: string;

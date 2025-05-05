@@ -5,7 +5,7 @@ import {cn} from "@/shared/lib/utils";
 import useEmblaCarousel from "embla-carousel-react";
 import {XlCard} from "@/shared/ui/components/xl-card";
 import {MoviesShowsTitle} from "@/shared/ui/components/movies-shows-title";
-import {useGetTrendingTv} from "@/shared/hooks/tvShows/useTrendingTv";
+import {useGetTrendingTv} from "@/shared/hooks/apiHooks/tvShows/useTrendingTv";
 import {MdCardSkeleton} from "@/shared/skeletons/MdCardSkeleton";
 import Autoplay from "embla-carousel-autoplay";
 import Link from "next/link";

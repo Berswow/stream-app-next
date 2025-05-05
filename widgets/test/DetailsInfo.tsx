@@ -6,7 +6,7 @@ import {Calendar, ImageOff, LayoutGrid, Music, Video} from "lucide-react";
 import {MovieDetailed} from "@/shared/types/Movie/MovieDetailInterface";
 import {formatDate} from "@/shared/lib/formatDate";
 import Image from "next/image";
-import {ParsedCreditsResponse} from "@/shared/hooks/movies/useMovieCast";
+import {ParsedCreditsResponse} from "@/shared/hooks/apiHooks/movies/useMovieCast";
 import {Skeleton} from "@/shared/ui/skeleton";
 import {TvShowDetailed} from "@/shared/types/Show/TvShowDetailInterface";
 import {getReleaseDate} from "@/shared/lib/getReleaseDate";

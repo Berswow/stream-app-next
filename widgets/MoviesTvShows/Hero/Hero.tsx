@@ -5,7 +5,7 @@ import {cn} from "@/shared/lib/utils";
 import {Skeleton} from "@/shared/ui/skeleton";
 import {Button} from "@/shared/ui/button";
 import {Play, Plus, ThumbsUp, Volume2} from "lucide-react";
-import {useGetPopularMovies} from "@/shared/hooks/movies/usePopularMovies";
+import {useGetPopularMovies} from "@/shared/hooks/apiHooks/movies/usePopularMovies";
 import Image from "next/image";
 import {IMAGE_BASE_URL} from "@/shared/constants/images";
 

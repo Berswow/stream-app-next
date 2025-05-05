@@ -5,8 +5,8 @@ import {DetailsInfo} from "@/widgets/test/DetailsInfo";
 import {CastInfo} from "@/widgets/test/CastInfo";
 import {ReviewsInfo} from "@/widgets/test/ReviewsInfo";
 import {useParams} from "next/navigation";
-import {useGetMovieDetailed} from "@/shared/hooks/movies/useMovieDetailed";
-import {useGetMovieCast} from "@/shared/hooks/movies/useMovieCast";
+import {useGetMovieDetailed} from "@/shared/hooks/apiHooks/movies/useMovieDetailed";
+import {useGetMovieCast} from "@/shared/hooks/apiHooks/movies/useMovieCast";
 import {HeroInfo} from "@/widgets/test/HeroInfo";
 
 export default function MovieDetailed(){

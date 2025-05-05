@@ -5,7 +5,7 @@ import {cn} from "@/shared/lib/utils";
 import useEmblaCarousel from "embla-carousel-react";
 import {XlCard} from "@/shared/ui/components/xl-card";
 import {MoviesShowsTitle} from "@/shared/ui/components/movies-shows-title";
-import {useGetNowPlayingMovies} from "@/shared/hooks/movies/useNowPlayingMovies";
+import {useGetNowPlayingMovies} from "@/shared/hooks/apiHooks/movies/useNowPlayingMovies";
 import {XlCardSkeleton} from "@/shared/skeletons/XlCardSkeleton";
 import Link from "next/link";
 import Autoplay from "embla-carousel-autoplay";

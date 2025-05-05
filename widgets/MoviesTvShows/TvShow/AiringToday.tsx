@@ -6,7 +6,7 @@ import useEmblaCarousel from "embla-carousel-react";
 import {Progress} from "@/shared/ui/progress";
 import {XlCard} from "@/shared/ui/components/xl-card";
 import {MoviesShowsTitle} from "@/shared/ui/components/movies-shows-title";
-import {useGetAiringToday} from "@/shared/hooks/tvShows/useAiringToday";
+import {useGetAiringToday} from "@/shared/hooks/apiHooks/tvShows/useAiringToday";
 import {MdCardSkeleton} from "@/shared/skeletons/MdCardSkeleton";
 
 type Props = {

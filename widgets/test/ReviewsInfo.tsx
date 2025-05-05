@@ -2,7 +2,7 @@ import { FC } from "react";
 import { cn } from "@/shared/lib/utils";
 import { Skeleton } from "@/shared/ui/skeleton";
 import useEmblaCarousel from "embla-carousel-react";
-import {useGetReviews} from "@/shared/hooks/useReview";
+import {useGetReviews} from "@/shared/hooks/apiHooks/useReview";
 
 type Props = {
     className?: string;

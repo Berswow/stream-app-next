@@ -6,8 +6,8 @@ import {CastInfo} from "@/widgets/test/CastInfo";
 import {ReviewsInfo} from "@/widgets/test/ReviewsInfo";
 import {useParams} from "next/navigation";
 import {HeroInfo} from "@/widgets/test/HeroInfo";
-import {useGetTvShowDetailed} from "@/shared/hooks/tvShows/useTvShowDetailed";
-import {useGetTvShowCast} from "@/shared/hooks/tvShows/useTvShowCast";
+import {useGetTvShowDetailed} from "@/shared/hooks/apiHooks/tvShows/useTvShowDetailed";
+import {useGetTvShowCast} from "@/shared/hooks/apiHooks/tvShows/useTvShowCast";
 
 export default function TvShowsDetailed(){
     const { id } = useParams();
