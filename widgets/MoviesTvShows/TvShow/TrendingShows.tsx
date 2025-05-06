@@ -3,7 +3,7 @@
 import React, {useRef} from "react";
 import {cn} from "@/shared/lib/utils";
 import useEmblaCarousel from "embla-carousel-react";
-import {XlCard} from "@/shared/ui/components/xl-card";
+import {XlCard} from "@/shared/ui/components/cards/xl-card";
 import {MoviesShowsTitle} from "@/shared/ui/components/movies-shows-title";
 import {useGetTrendingTv} from "@/shared/hooks/apiHooks/tvShows/useTrendingTv";
 import {MdCardSkeleton} from "@/shared/skeletons/MdCardSkeleton";

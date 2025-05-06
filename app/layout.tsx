@@ -8,6 +8,7 @@ import {Header} from "@/widgets/Header/Header";
 import {Cta} from "@/widgets/CTA/Cta";
 import {Footer} from "@/widgets/Footer/Footer";
 import {ReactQueryProvider} from "@/providers/react-query-provider";
+import {ReduxProvider} from "@/providers/redux-provider";
 
 const manrope = Manrope({
     variable: "--font-manrope",
@@ -32,19 +33,21 @@ export default function RootLayout({
             className={`${manrope.variable} antialiased`}
         >
         <ReactQueryProvider>
-            <ThemeProvider
-                attribute="class"
-                defaultTheme="system"
-                enableSystem
-                disableTransitionOnChange
-            >
-                <Header/>
-                <div className='flex flex-col gap-20 lg:gap-30 2xl:gap-37.5'>
-                    {children}
-                    <Cta/>
-                    <Footer/>
-                </div>
-            </ThemeProvider>
+            <ReduxProvider>
+                <ThemeProvider
+                    attribute="class"
+                    defaultTheme="system"
+                    enableSystem
+                    disableTransitionOnChange
+                >
+                    <Header />
+                    <div className="flex flex-col gap-20 lg:gap-30 2xl:gap-37.5">
+                        {children}
+                        <Cta />
+                        <Footer />
+                    </div>
+                </ThemeProvider>
+            </ReduxProvider>
         </ReactQueryProvider>
         </body>
         </html>

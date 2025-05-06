@@ -4,7 +4,7 @@ import React, {useState, useCallback, FC, useEffect} from "react";
 import useEmblaCarousel from "embla-carousel-react";
 import { Progress } from "@/shared/ui/progress";
 import { cn } from "@/shared/lib/utils";
-import {GenreCard} from "@/shared/ui/components/genre-card";
+import {GenreCard} from "@/shared/ui/components/cards/genre-card";
 import {MoviesShowsTitle} from "@/shared/ui/components/movies-shows-title";
 
 type Props = {

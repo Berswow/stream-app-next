@@ -2,7 +2,7 @@
 
 import React, {useRef} from "react";
 import {cn} from "@/shared/lib/utils";
-import {SmCard} from "@/shared/ui/components/sm-Card";
+import {SmCard} from "@/shared/ui/components/cards/sm-Card";
 import useEmblaCarousel from "embla-carousel-react";
 import {MoviesShowsTitle} from "@/shared/ui/components/movies-shows-title";
 import {useGetTrendingMovies} from "@/shared/hooks/apiHooks/movies/useTrendingMovies";

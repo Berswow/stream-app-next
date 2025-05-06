@@ -1,7 +1,7 @@
 import React from "react";
 import {cn} from "@/shared/lib/utils";
 import {HomeTitle} from "@/shared/ui/components/home-title";
-import {DeviceCard} from "@/shared/ui/components/device-card";
+import {DeviceCard} from "@/shared/ui/components/cards/device-card";
 import {Gamepad2, Laptop, RectangleGoggles, Smartphone, Tablet, Tv} from "lucide-react";
 
 type Props = {
