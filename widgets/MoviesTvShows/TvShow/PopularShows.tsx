@@ -13,7 +13,7 @@ type Props = {
 
 export const PopularShows: FC<Props> = ({ className }) => {
     const [progress, setProgress] = useState(0);
-    const [emblaRef, emblaApi] = useEmblaCarousel({ align: "start" });
+    const [emblaRef, emblaApi] = useEmblaCarousel({ align: "start", dragFree: true});
 
     const onScroll = useCallback(() => {
         if (!emblaApi) return;

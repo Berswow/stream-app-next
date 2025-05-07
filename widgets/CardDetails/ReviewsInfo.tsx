@@ -11,7 +11,7 @@ type Props = {
 };
 
 export const ReviewsInfo: FC<Props> = ({ className, itemId, type }) => {
-    const [emblaRef] = useEmblaCarousel({align: "start"});
+    const [emblaRef] = useEmblaCarousel({align: "start", dragFree: true});
 
     const { data, isLoading } = useGetReviews(type, itemId)
     const reviewsList = data?.results ?? [];

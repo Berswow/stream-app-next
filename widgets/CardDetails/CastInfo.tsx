@@ -13,7 +13,7 @@ type Props = {
 };
 
 export const CastInfo: FC<Props> = ({className, cast}) => {
-    const [emblaRef] = useEmblaCarousel({align: "start"});
+    const [emblaRef] = useEmblaCarousel({align: "start", dragFree: true});
 
 
     return (

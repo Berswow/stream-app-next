@@ -16,7 +16,7 @@ type Props = {
 
 export const UpcomingMovies: React.FC<Props> = ({className}) => {
     const autoplay = useRef(Autoplay({ delay: 3100, stopOnInteraction: true }));
-    const [emblaRef] = useEmblaCarousel({ align: "start", startIndex: 1, loop: true, }, [autoplay.current]);
+    const [emblaRef] = useEmblaCarousel({ align: "start", startIndex: 1, loop: true, dragFree: true }, [autoplay.current]);
 
     const {data, isLoading} = useGetUpcomingMovies()
 

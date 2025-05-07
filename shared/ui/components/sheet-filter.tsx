@@ -64,7 +64,7 @@ export const SheetFilter: FC<Props> = ({className, itemType}) => {
                     </SheetHeader>
 
                     {/*  Genres carousel */}
-                    <Carousel opts={{align: "start"}} className="w-full mt-4">
+                    <Carousel opts={{align: "start", dragFree: true}} className="w-full mt-4">
                         <CarouselContent>
                             {genreList.map((genre) => {
                                 const isSelected = genres.includes(genre.id);
@@ -95,7 +95,7 @@ export const SheetFilter: FC<Props> = ({className, itemType}) => {
                     </Carousel>
 
                     {/*  Year carousel */}
-                    <Carousel opts={{align: "start"}} className="w-full mt-4">
+                    <Carousel opts={{align: "start", dragFree: true}} className="w-full mt-4">
                         <CarouselContent>
                             {YEARS.map((year) => {
                                 const isSelected = year === currentYear;
