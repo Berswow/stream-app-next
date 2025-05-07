@@ -17,10 +17,11 @@ import {YEARS} from "@/shared/constants/years";
 
 type Props = {
     className?: string;
+    itemType: 'movie' | 'tv'
 };
 
-export const SheetFilter: FC<Props> = ({className}) => {
-    const {data} = useGetGenre('movie')
+export const SheetFilter: FC<Props> = ({className, itemType}) => {
+    const {data} = useGetGenre(itemType)
     const genreList = data?.genres ?? []
 
 
