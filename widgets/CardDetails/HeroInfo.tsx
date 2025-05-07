@@ -7,7 +7,7 @@ import {Play, Plus, ThumbsUp, Volume2} from "lucide-react";
 import {IMAGE_BASE_URL} from "@/shared/constants/images";
 import {MovieDetailed} from "@/shared/types/Movie/MovieDetailInterface";
 import {TvShowDetailed} from "@/shared/types/Show/TvShowDetailInterface";
-import {getDisplayTitle} from "@/shared/lib/getDisplayTitle";
+import {getDisplayTitleDetailed} from "@/shared/lib/getDisplayTitle";
 
 type Props = {
     className?: string;
@@ -20,7 +20,7 @@ export const HeroInfo: FC<Props> = ({className, item}) => {
         ? `${IMAGE_BASE_URL}${item.backdrop_path}`
         : null;
 
-    const title = getDisplayTitle(item)
+    const title = getDisplayTitleDetailed(item)
 
     return (
         <div className={cn("relative mx-auto w-screen 2xl:max-w-[1920px] h-[468px] sm:h-[509px] md:h-[609px] lg:h-[709px] 2xl:h-[835px]", className)}>

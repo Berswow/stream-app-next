@@ -2,38 +2,38 @@ import {createSlice, PayloadAction} from "@reduxjs/toolkit";
 import {RootState} from "@/store/store";
 
 interface initialState {
-    genres: string[]
-    years: number[]
+    genres: number[]
+    year: number | 2025
 }
 
 const initialState: initialState = {
     genres: [],
-    years: []
+    year: 2025
 }
 
 const filterSlice = createSlice({
     name: 'filter',
     initialState,
     reducers: {
-        setAddGenres: (state: initialState, action: PayloadAction<string>) => {
+        setAddGenres: (state: initialState, action: PayloadAction<number>) => {
             state.genres.push(action.payload)
         },
-        setDeleteGenres: (state: initialState, action: PayloadAction<string>) => {
+        setDeleteGenres: (state: initialState, action: PayloadAction<number>) => {
             state.genres = state.genres.filter(name => name !== action.payload)
 
         },
-        setAddYears: (state: initialState, action: PayloadAction<number>) => {
-            state.years.push(action.payload)
+        setYear: (state: initialState, action: PayloadAction<number>) => {
+            state.year = action.payload
         },
-        setDeleteYears: (state: initialState, action: PayloadAction<number>) => {
-            state.years = state.years.filter(name => name !== action.payload)
+        setDeleteYear: () => {
+            return initialState
         },
     }
 })
 
-export const {setAddGenres, setDeleteGenres, setDeleteYears, setAddYears} = filterSlice.actions
+export const {setAddGenres, setDeleteGenres, setDeleteYear, setYear} = filterSlice.actions
 
 export const selectGenres = (state: RootState) => state.filter.genres
-export const selectYears = (state: RootState) => state.filter.years
+export const selectYear = (state: RootState) => state.filter.year
 
 export default filterSlice.reducer

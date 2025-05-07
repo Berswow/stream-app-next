@@ -7,12 +7,9 @@ import {Carousel, CarouselContent, CarouselItem} from "@/shared/ui/carousel";
 import {Card, CardContent} from "@/shared/ui/card";
 import {useSelector} from "react-redux";
 import {
-    selectGenres,
-    selectYears,
-    setAddGenres,
-    setAddYears,
-    setDeleteGenres,
-    setDeleteYears
+    selectGenres, selectYear,
+    setAddGenres, setYear,
+    setDeleteGenres, setDeleteYear
 } from "@/store/slices/filterSlice";
 import {useAppDispatch} from "@/store/store";
 import {useGetGenre} from "@/shared/hooks/apiHooks/useGenre";
@@ -30,21 +27,21 @@ export const SheetFilter: FC<Props> = ({className}) => {
     const dispatch = useAppDispatch()
 
     const genres = useSelector(selectGenres)
-    const years = useSelector(selectYears)
+    const currentYear = useSelector(selectYear)
 
-    const toggleGenre = (name: string) => {
-        if (genres.includes(name)) {
-            dispatch(setDeleteGenres(name))
+    const toggleGenre = (id: number) => {
+        if (genres.includes(id)) {
+            dispatch(setDeleteGenres(id))
         } else {
-            dispatch(setAddGenres(name))
+            dispatch(setAddGenres(id))
         }
     };
 
-    const toggleYears = (year: number) => {
-        if (years.includes(year)) {
-            dispatch(setDeleteYears(year))
+    const toggleYears = (selectedYear: number) => {
+        if (currentYear === selectedYear) {
+            dispatch(setDeleteYear())
         } else {
-            dispatch(setAddYears(year))
+            dispatch(setYear(selectedYear))
         }
     };
 
@@ -69,14 +66,14 @@ export const SheetFilter: FC<Props> = ({className}) => {
                     <Carousel opts={{align: "start"}} className="w-full mt-4">
                         <CarouselContent>
                             {genreList.map((genre) => {
-                                const isSelected = genres.includes(genre.name);
+                                const isSelected = genres.includes(genre.id);
                                 return (
                                     <CarouselItem
                                         key={genre.id}
                                         className="min-w-0 basis-1/3 md:basis-1/4 lg:basis-1/6"
                                     >
                                         <Card
-                                            onClick={() => toggleGenre(genre.name)}
+                                            onClick={() => toggleGenre(genre.id)}
                                             className={cn(
                                                 "flex justify-center items-center cursor-pointer h-17 transition-colors py-6 border",
                                                 isSelected
@@ -100,7 +97,7 @@ export const SheetFilter: FC<Props> = ({className}) => {
                     <Carousel opts={{align: "start"}} className="w-full mt-4">
                         <CarouselContent>
                             {YEARS.map((year) => {
-                                const isSelected = years.includes(year);
+                                const isSelected = year === currentYear;
                                 return (
                                     <CarouselItem
                                         key={year}
