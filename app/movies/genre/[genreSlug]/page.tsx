@@ -10,7 +10,7 @@ import Link from "next/link";
 import {DefaultCard} from "@/shared/ui/components/cards/default-card";
 
 export default function MovieGenrePage() {
-    const genres = useSelector(selectGenres);
+    const selectedGenres = useSelector(selectGenres);
     const year = useSelector(selectYear);
 
     const {
@@ -20,7 +20,7 @@ export default function MovieGenrePage() {
         hasNextPage,
         isFetchingNextPage,
     } = useInfiniteDiscoverMovie({
-        with_genres: genres.join(','),
+        with_genres: selectedGenres.join(','),
         year,
     });
 
