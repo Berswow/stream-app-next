@@ -7,7 +7,7 @@ import React from "react";
 export default function Home() {
     return (
         <div>
-            <div className='relative -mt-29 -z-20'>
+            <div>
                 <HeroBackground/>
                 <HeroTitle/>
             </div>

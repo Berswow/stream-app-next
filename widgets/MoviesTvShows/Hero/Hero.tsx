@@ -23,7 +23,7 @@ export const Hero: React.FC<Props> = ({className}) => {
 
 
     return (
-        <div className={cn("-mt-36 -z-20 mx-auto w-screen sm:-mt-29 2xl:max-w-[1920px]", className)}>
+        <div className={cn("mx-auto w-screen 2xl:max-w-[1920px]", className)}>
             <div
                 className="relative w-full h-[468px] sm:h-[509px] md:h-[609px] lg:h-[709px] 2xl:h-[835px] rounded-xl overflow-hidden">
                 {isLoading || !imageUrl ? (

@@ -10,6 +10,7 @@ import {useGetGenre} from "@/shared/hooks/apiHooks/useGenre";
 import Link from "next/link";
 import {useAppDispatch} from "@/store/store";
 import {setAddGenres, setClearAll} from "@/store/slices/filterSlice";
+import Autoplay from "embla-carousel-autoplay";
 
 type Props = {
     className?: string;
@@ -17,7 +18,13 @@ type Props = {
 
 export const PopularMovies: FC<Props> = ({ className }) => {
     const dispatch = useAppDispatch()
-    const [emblaRef] = useEmblaCarousel({ align: "start", dragFree: true });
+    const [emblaRef] = useEmblaCarousel({ align: "start", dragFree: true, loop: true }, [
+        Autoplay({
+            delay: 6300,
+            stopOnInteraction: false,
+            stopOnMouseEnter: true,
+        })
+    ]);
     const { data: genreResponse, isLoading: isLoadingGenres } = useGetGenre("movie");
 
     const genres = genreResponse?.genres ?? [];
@@ -25,7 +32,7 @@ export const PopularMovies: FC<Props> = ({ className }) => {
     return (
         <div className={cn("my-container", className)}>
             <MoviesShowsTitle title='Our Genres'/>
-            <div className="overflow-hidden" ref={emblaRef}>
+            <div className="overflow-hidden p-10" ref={emblaRef}>
                 <div className="flex gap-4">
                     {isLoadingGenres
                         ? Array.from({ length: 6 }).map((_, index) => (
@@ -46,7 +53,8 @@ export const PopularMovies: FC<Props> = ({ className }) => {
                                       dispatch(setAddGenres(genre.id))}}
                             >
                                 <div
-                                    className="basis-1/3 md:basis-1/4 lg:basis-1/5 inline-flex p-0"
+                                    className="basis-1/3 md:basis-1/4 lg:basis-1/5 inline-flex p-0 transition-all duration-300
+             hover:scale-105 hover:shadow-[0px_5px_15px_5px_#000000] active:scale-95"
                                 >
                                     <GenreCard genre={genre} type='movie' className='cursor-pointer select-none'/>
                                 </div>
