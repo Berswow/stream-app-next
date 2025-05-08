@@ -57,7 +57,7 @@ export default function MovieGenrePage() {
     }, [hasNextPage, isFetchingNextPage, fetchNextPage]);
 
     return (
-        <div className='my-container flex flex-col gap-5'>
+        <div className='my-container flex flex-col gap-5 mt-30 sm:mt-35 md:mt-40 lg:mt-45 2xl:mt-50'>
             <SheetFilter itemType='movie'/>
             <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 2xl:grid-cols-6">
                 {isLoading
