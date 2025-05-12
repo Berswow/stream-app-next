@@ -19,7 +19,7 @@ type Props = {
 export const PopularShows: FC<Props> = ({ className }) => {
     const dispatch = useAppDispatch()
     const [emblaRef] = useEmblaCarousel(
-        { align: "start", dragFree: true, loop: true },
+        { align: "start", dragFree: true, startIndex: 1 },
         [
             Autoplay({
                 delay: 9000,

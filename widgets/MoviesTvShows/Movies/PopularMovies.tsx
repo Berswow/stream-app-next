@@ -18,7 +18,7 @@ type Props = {
 
 export const PopularMovies: FC<Props> = ({ className }) => {
     const dispatch = useAppDispatch()
-    const [emblaRef] = useEmblaCarousel({ align: "start", dragFree: true, loop: true }, [
+    const [emblaRef] = useEmblaCarousel({ align: "start", startIndex: 1, dragFree: true }, [
         Autoplay({
             delay: 6300,
             stopOnInteraction: false,

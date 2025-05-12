@@ -1,10 +1,12 @@
 import {configureStore} from "@reduxjs/toolkit";
 import {useDispatch} from "react-redux";
 import filterSlice from "@/store/slices/filterSlice";
+import typeSlice from "@/store/slices/typeSlice";
 
 export const store = configureStore({
     reducer: {
-        filter: filterSlice
+        filter: filterSlice,
+        type: typeSlice
     },
 })
 
