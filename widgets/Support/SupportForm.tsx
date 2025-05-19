@@ -1,3 +1,5 @@
+'use client'
+
 import {FC} from "react";
 import {cn} from "@/shared/lib/utils";
 import {Card, CardContent} from "@/shared/ui/card";
@@ -38,7 +40,9 @@ export const SupportForm: FC<Props> = ({className}) => {
     })
 
     const handleOnSubmit = (data: z.infer<typeof formSchema>) => {
+        console.log(data)
         toast("Support message sent!");
+        form.reset();
     }
 
     return (

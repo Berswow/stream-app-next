@@ -1,5 +1,3 @@
-"use client"
-
 import {SupportForm, SupportHero} from "@/widgets/Support";
 
 export default function Support() {
