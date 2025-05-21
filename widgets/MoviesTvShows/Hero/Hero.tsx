@@ -1,6 +1,6 @@
 "use client"
 
-import React from "react";
+import React, {useState} from "react";
 import {cn} from "@/shared/lib/utils";
 import {Skeleton} from "@/shared/ui/skeleton";
 import {Button} from "@/shared/ui/button";
@@ -8,15 +8,23 @@ import {Play, Plus, ThumbsUp, Volume2} from "lucide-react";
 import {useGetPopularMovies} from "@/shared/hooks/apiHooks/movies/usePopularMovies";
 import Image from "next/image";
 import {IMAGE_BASE_URL} from "@/shared/constants/images";
+import {TrailerModal} from "@/shared/ui/components/trailer-modal";
+import {useGetTrailer} from "@/shared/hooks/apiHooks/useTrailer";
 
 type Props = {
     className?: string;
 };
 
 export const Hero: React.FC<Props> = ({className}) => {
+    const [isModalOpen, setIsModalOpen] = useState(false)
 
     const {data, isLoading} = useGetPopularMovies();
     const movie = data?.results?.[0] || null;
+    const movieId = movie?.id || null;
+
+    const {data: trailerKey} = useGetTrailer('movie', movieId ?? 0)
+
+
     const imageUrl = movie?.backdrop_path
         ? `${IMAGE_BASE_URL}${movie.backdrop_path}`
         : null;
@@ -51,6 +59,7 @@ export const Hero: React.FC<Props> = ({className}) => {
 
                     <div className='flex flex-col gap-5 md:flex-row'>
                         <Button variant='default'
+                                onClick={() => setIsModalOpen(true)}
                                 className='h-[52px] w-[310px] rounded-md md:w-[128px] 2xl:w-[157px] 2xl:h-[56px]'>
                             <Play fill='white'/>Play Now</Button>
                         <div className='flex justify-center items-center gap-2.5'>
@@ -67,6 +76,7 @@ export const Hero: React.FC<Props> = ({className}) => {
                     </div>
                 </div>
             </div>
+            <TrailerModal trailerKey={trailerKey ?? ""} isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
         </div>
     );
 };
