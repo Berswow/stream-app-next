@@ -76,7 +76,8 @@ export default function TvShowGenrePage() {
                         >
                             <DefaultCard
                                 item={tvShow}
-                                className='transition-transform duration-300 active:scale-95'
+                                className='transition-all duration-300
+             hover:scale-105 hover:shadow-[0px_5px_15px_5px_#000000] active:scale-95'
                             />
                         </Link>
                     ))}

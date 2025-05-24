@@ -31,7 +31,7 @@ export const PopularMovies: FC<Props> = ({ className }) => {
 
     return (
         <div className={cn("my-container", className)}>
-            <MoviesShowsTitle title='Our Genres'/>
+            <MoviesShowsTitle title='Our Movie Genres'/>
             <div className="overflow-hidden p-10" ref={emblaRef}>
                 <div className="flex gap-4">
                     {isLoadingGenres
@@ -53,7 +53,7 @@ export const PopularMovies: FC<Props> = ({ className }) => {
                                       dispatch(setAddGenres(genre.id))}}
                             >
                                 <div
-                                    className="basis-1/3 md:basis-1/4 lg:basis-1/5 inline-flex p-0 transition-all duration-300
+                                    className="basis-1/3 md:basis-1/4 lg:basis-1/5 inline-flex p-0 rounded-xl transition-all duration-300
              hover:scale-105 hover:shadow-[0px_5px_15px_5px_#000000] active:scale-95"
                                 >
                                     <GenreCard genre={genre} type='movie' className='cursor-pointer select-none'/>

@@ -40,7 +40,7 @@ export const AiringToday: FC<Props> = ({className}) => {
                         tvShowList.map((tvShow) => (
                             <div
                                 key={tvShow.id}
-                                className="basis-1/3 md:basis-1/4 lg:basis-1/5 inline-flex p-0 transition-all duration-300
+                                className="basis-1/3 md:basis-1/4 lg:basis-1/5 inline-flex p-0 rounded-xl transition-all duration-300
              hover:scale-105 hover:shadow-[0px_5px_15px_5px_#000000] active:scale-95"
                             >
                                 <XlCard item={tvShow}/>

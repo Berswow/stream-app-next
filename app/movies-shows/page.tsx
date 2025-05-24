@@ -21,24 +21,24 @@ export default function MoviesTvShows()  {
             {/* Mobile */}
             <div className="block lg:hidden">
                 {currentType === 'movies' ? (
-                    <>
+                    <div className='flex flex-col gap-12.5'>
                         <PopularMovies />
                         <TrendingMovies />
                         <UpcomingMovies />
                         <NowPlayingMovies />
-                    </>
+                    </div>
                 ) : (
-                    <>
+                    <div className='flex flex-col gap-12.5'>
                         <PopularShows />
                         <TrendingShows />
                         <AiringToday />
                         <OnTheAir />
-                    </>
+                    </div>
                 )}
             </div>
 
             {/* Desktop */}
-            <div className="hidden lg:block">
+            <div className="hidden lg:flex flex-col gap-20 2xl:gap-25">
                 <PopularMovies />
                 <TrendingMovies />
                 <UpcomingMovies />
