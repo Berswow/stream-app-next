@@ -10,7 +10,7 @@ type Props = {
     seasonId: number;
 };
 
-export const EpisodeInfo: FC<Props> = ({className, seasonId, tvShowId}) => {
+export const EpisodeInfoMobile: FC<Props> = ({className, seasonId, tvShowId}) => {
     const {data} = useGetTvShowSeasonDetails(tvShowId, seasonId)
 
     const episodes = data?.episodes || [];
@@ -61,8 +61,8 @@ export const EpisodeInfo: FC<Props> = ({className, seasonId, tvShowId}) => {
                         </div>
 
                         <div>
-                                <p className='font-semibold text-base'>{episode.name}</p>
-                                <p className='hidden lg:block'>{episode.overview}</p>
+                            <p className='font-semibold text-base'>{episode.name}</p>
+                            <p className='hidden lg:block'>{episode.overview}</p>
                         </div>
                     </div>
                 </div>

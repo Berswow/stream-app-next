@@ -2,7 +2,9 @@ import {FC} from "react";
 import {cn} from "@/shared/lib/utils";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/shared/ui/accordion";
 import {Season} from "@/shared/types/Show/TvShowDetailInterface";
-import {EpisodeInfo} from "@/widgets/CardDetails/EpisodeInfo";
+import {EpisodeInfoDesktop} from "@/widgets/CardDetails/EpisodeInfoDesktop";
+import {useMediaQuery} from "@/shared/hooks/useMediaQuery";
+import {EpisodeInfoMobile} from "@/widgets/CardDetails/EpisodeInfoMobile";
 
 type Props = {
     className?: string;
@@ -11,6 +13,8 @@ type Props = {
 };
 
 export const SeasonsEpisodesInfo: FC<Props> = ({className, tvShowId, seasons}) => {
+    const isDesktop = useMediaQuery("(min-width: 1024px)");
+
     const seasonsList = seasons.filter((season) => season.season_number !== 0)
 
 
@@ -35,7 +39,11 @@ export const SeasonsEpisodesInfo: FC<Props> = ({className, tvShowId, seasons}) =
                                     </div>
                                 </AccordionTrigger>
                                 <AccordionContent className='flex flex-col bg-neutral-950 rounded-b-xl p-5'>
-                                    <EpisodeInfo tvShowId={tvShowId} seasonId={season.season_number}/>
+                                    {isDesktop ? (
+                                        <EpisodeInfoDesktop tvShowId={tvShowId} seasonId={season.season_number}/>
+                                    ) : (
+                                        <EpisodeInfoMobile tvShowId={tvShowId} seasonId={season.season_number}/>
+                                    )}
                                 </AccordionContent>
                             </AccordionItem>
                         ))}
