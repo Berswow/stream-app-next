@@ -40,53 +40,50 @@ export const MovieSearch: FC<Props> = ({className, type}) => {
 
     return (
         <div className={cn("", className)}>
-                {modalState && <div className="fixed inset-0 z-40 backdrop-blur-sm bg-black/30"/>}
-                    <div className="flex flex-col items-center gap-4 w-[500px] px-4">
-                        <div className='flex items-center gap-3 self-start w-full'>
-                            <Search size={30}/>
-                            <Input
-                                value={searchValue}
-                                onChange={handleSearch}
-                                placeholder={`Search ${type}...`}
-                                className="self-start h-14 font-bold border-none"
-                            />
-                        </div>
+            <div className='flex items-center gap-3 self-start w-full'>
+                <Search size={30}/>
+                <Input
+                    value={searchValue}
+                    onChange={handleSearch}
+                    placeholder={`Search ${type}...`}
+                    className="self-start h-14 font-bold border-none"
+                />
+            </div>
 
-                        {isLoading && (
-                            <div className="text-white mt-4">Loading...</div>
-                        )}
+            {isLoading && (
+                <div className="text-white mt-4">Loading...</div>
+            )}
 
-                        {error && (
-                            <div className="text-red-500 mt-4">Error</div>
-                        )}
+            {error && (
+                <div className="text-red-500 mt-4">Error</div>
+            )}
 
-                        <AnimatePresence>
-                            {searchResults.length > 0 && !isLoading && !error && (
-                                <motion.ul
-                                    initial={{opacity: 0, y: -10}}
-                                    animate={{opacity: 1, y: 0}}
-                                    exit={{opacity: 0, y: -10}}
-                                    transition={{duration: 0.2}}
-                                    className="flex flex-col gap-3 py-2 self-start"
+            <AnimatePresence>
+                {searchResults.length > 0 && !isLoading && !error && (
+                    <motion.ul
+                        initial={{opacity: 0, y: -10}}
+                        animate={{opacity: 1, y: 0}}
+                        exit={{opacity: 0, y: -10}}
+                        transition={{duration: 0.2}}
+                        className="flex flex-col gap-3 py-2 self-start"
+                    >
+                        {searchResults.map((result) => (
+                            <Link
+                                href={`/movies/${result.id}`}
+                                onClick={handleResultClick}
+                                key={result.id}
+                            >
+                                <li
+                                    className="flex items-center gap-2 p-3 text-nowrap cursor-pointer rounded-xl hover:shadow-[0px_5px_10px_5px_#000000] transition-shadow duration-300"
                                 >
-                                    {searchResults.map((result) => (
-                                        <Link
-                                            href={`/movies/${result.id}`}
-                                            onClick={handleResultClick}
-                                            key={result.id}
-                                        >
-                                            <li
-                                                className="flex items-center gap-2 p-3 text-nowrap cursor-pointer rounded-xl hover:shadow-[0px_5px_10px_5px_#000000] transition-shadow duration-300"
-                                            >
-                                                <Search size={15}/> {result.title}
-                                                <span>({formatDateToYear(result.release_date)})</span>
-                                            </li>
-                                        </Link>
-                                    ))}
-                                </motion.ul>
-                            )}
-                        </AnimatePresence>
-                    </div>
+                                    <Search size={15}/> {result.title}
+                                    <span>({formatDateToYear(result.release_date)})</span>
+                                </li>
+                            </Link>
+                        ))}
+                    </motion.ul>
+                )}
+            </AnimatePresence>
         </div>
     );
 };
