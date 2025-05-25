@@ -16,7 +16,7 @@ type Props = {
 
 export const TrendingShows: React.FC<Props> = ({className}) => {
     const autoplay = useRef(Autoplay({ delay: 5700, stopOnInteraction: true }));
-    const [emblaRef] = useEmblaCarousel({ align: "start", startIndex: 1, loop: true, dragFree: true }, [autoplay.current]);
+    const [emblaRef] = useEmblaCarousel({ align: "start", startIndex: 1, dragFree: true }, [autoplay.current]);
 
     const {data, isLoading} = useGetTrendingTv()
     const tvShowList = data?.results || []

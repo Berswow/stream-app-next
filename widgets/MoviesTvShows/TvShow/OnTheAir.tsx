@@ -14,7 +14,7 @@ type Props = {
 };
 
 export const OnTheAir: FC<Props> = ({className}) => {
-    const [emblaRef] = useEmblaCarousel({ align: "start", dragFree: true, loop: true }, [Autoplay({
+    const [emblaRef] = useEmblaCarousel({ align: "start", dragFree: true}, [Autoplay({
         delay: 4200,
         stopOnInteraction: false,
         stopOnMouseEnter: true,

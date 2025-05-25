@@ -6,6 +6,7 @@ import {Button} from '@/shared/ui/button'
 import {Bell, Search} from 'lucide-react'
 import {cn} from '@/shared/lib/utils'
 import Link from "next/link";
+import {GlobalSearch} from "@/widgets/Search/GlobalSearch";
 // import {ThemeToggle} from "@/shared/ui/components/mode-toggle";
 
 const tabs = [
@@ -31,7 +32,7 @@ export const Header = () => {
                 </svg>
             </Link>
 
-            {/* Навигация для xl+ */}
+            {/* Navigation for xl+ */}
             <nav className="hidden md:block">
                 <div className="flex items-center gap-2 p-2 bg-black border-border border-4 rounded-xl 2xl:gap-3.5">
                     {tabs.map((tab) => {
@@ -56,14 +57,15 @@ export const Header = () => {
                 </div>
             </nav>
 
-            {/* Иконки поиска и профиля */}
+            {/* Icons */}
             <div className="hidden md:flex gap-5 items-center justify-end">
-                <Search size={30}/>
+                {/*<Search size={30}/>*/}
                 <Bell size={30}/>
+                <GlobalSearch/>
                 {/*<ThemeToggle/>*/}
             </div>
 
-            {/* Бургер для mobile */}
+            {/* Burger Icon */}
             <div className="block md:hidden">
                 <BurgerMenu/>
             </div>

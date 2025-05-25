@@ -14,7 +14,7 @@ type Props = {
 };
 
 export const AiringToday: FC<Props> = ({className}) => {
-    const [emblaRef] = useEmblaCarousel({ align: "start", dragFree: true, loop: true}, [
+    const [emblaRef] = useEmblaCarousel({ align: "start", dragFree: true}, [
         Autoplay({
             delay: 3300,
             stopOnInteraction: false,
