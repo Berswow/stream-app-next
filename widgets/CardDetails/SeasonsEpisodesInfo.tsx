@@ -31,7 +31,7 @@ export const SeasonsEpisodesInfo: FC<Props> = ({className, tvShowId, seasons}) =
             <div className="space-y-2">
                     <Accordion type="single" collapsible className="flex flex-col gap-4 w-full 2xl:gap-5">
                         {seasonsList.map((season: Season, index: number) => (
-                            <AccordionItem key={season.id} value={`item-${index + 1}`} className='border border-neutral-700 rounded-xl'>
+                            <AccordionItem key={season.id} value={`item-${index + 1}`} className='border border-neutral-700 rounded-xl hover:border-primary transition-colors duration-300'>
                                 <AccordionTrigger className='bg-neutral-950 p-6.5 rounded-xl data-[state=open]:rounded-b-none lg:px-10 2xl:px-12.5 2xl:py-8'>
                                     <div className='flex gap-2.5 items-center 2xl:gap-3.5'>
                                         <h4 className='text-base font-semibold lg:text-xl 2xl:text-2xl'>{season.name}</h4>

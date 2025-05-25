@@ -3,7 +3,7 @@
 import {usePathname} from 'next/navigation'
 import {BurgerMenu} from '@/shared/ui/components/BurgerMenu'
 import {Button} from '@/shared/ui/button'
-import {Bell, Search} from 'lucide-react'
+import {Bell} from 'lucide-react'
 import {cn} from '@/shared/lib/utils'
 import Link from "next/link";
 import {GlobalSearch} from "@/widgets/Search/GlobalSearch";
@@ -61,12 +61,14 @@ export const Header = () => {
             <div className="hidden md:flex gap-5 items-center justify-end">
                 {/*<Search size={30}/>*/}
                 <Bell size={30}/>
-                <GlobalSearch/>
+                <GlobalSearch iconSize={30}/>
                 {/*<ThemeToggle/>*/}
             </div>
 
             {/* Burger Icon */}
-            <div className="block md:hidden">
+            <div className="flex items-center gap-6 md:hidden text-primary">
+                <Bell size={24}/>
+                <GlobalSearch iconSize={24}/>
                 <BurgerMenu/>
             </div>
 

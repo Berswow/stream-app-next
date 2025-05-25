@@ -8,9 +8,11 @@ import {Sheet, SheetContent, SheetTrigger} from "@/shared/ui/sheet";
 import {selectSearchToggle, setSearchToggle} from "@/store/slices/uiSlice";
 import {useAppDispatch} from "@/store/store";
 import {MovieSearch} from "@/widgets/Search/MovieSearch";
+import {TvShowSearch} from "@/widgets/Search/TvShowSearch";
 
 type Props = {
     className?: string;
+    iconSize: number;
 };
 
 const filters = [
@@ -19,17 +21,30 @@ const filters = [
     { label: "People", value: "person", icon: <User className="w-4 h-4" /> },
 ]
 
-export const GlobalSearch: FC<Props> = ({className}) => {
+export const GlobalSearch: FC<Props> = ({className, iconSize}) => {
     const dispatch = useAppDispatch()
     const [type, setType] = useState("movie")
 
     const modalState = useSelector(selectSearchToggle)
 
+    const renderSearchComponent = () => {
+        switch (type) {
+            case 'movie':
+                return <MovieSearch className='w-full' type={type} />
+            case 'tvShow':
+                return <TvShowSearch className='w-full' type={type}/>
+            case 'person':
+                return <h1>Coming soon</h1>
+            default:
+                return
+        }
+    }
+
     return (
         <div className={cn("", className)}>
             <Sheet open={modalState} onOpenChange={() => dispatch(setSearchToggle(!modalState))}>
                 <SheetTrigger asChild>
-                    <Search className='cursor-pointer hover:text-red-600 transition-colors duration-300' size={30} />
+                    <Search className='cursor-pointer hover:text-red-600 transition-colors duration-300' size={iconSize} />
                 </SheetTrigger>
 
                 {modalState && <div className="fixed inset-0 z-40 backdrop-blur-sm bg-black/30" />}
@@ -50,8 +65,7 @@ export const GlobalSearch: FC<Props> = ({className}) => {
                                 </Button>
                             ))}
                         </div>
-                        {type === 'movie' ? <MovieSearch className='w-full' type={type}/> : <h1>Coming soon</h1>}
-
+                        {renderSearchComponent()}
                     </div>
                 </SheetContent>
             </Sheet>
