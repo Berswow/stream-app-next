@@ -9,6 +9,7 @@ import {selectSearchToggle, setSearchToggle} from "@/store/slices/uiSlice";
 import {useAppDispatch} from "@/store/store";
 import {MovieSearch} from "@/widgets/Search/MovieSearch";
 import {TvShowSearch} from "@/widgets/Search/TvShowSearch";
+import {PersonSearch} from "@/widgets/Search/PersonSearch";
 
 type Props = {
     className?: string;
@@ -34,7 +35,7 @@ export const GlobalSearch: FC<Props> = ({className, iconSize}) => {
             case 'tvShow':
                 return <TvShowSearch className='w-full' type={type}/>
             case 'person':
-                return <h1>Coming soon</h1>
+                return <PersonSearch className='w-full' type={type}/>
             default:
                 return
         }
@@ -51,7 +52,7 @@ export const GlobalSearch: FC<Props> = ({className, iconSize}) => {
 
                 <SheetContent side="top"
                               className="flex flex-col items-center max-h-[100dvh] overflow-visible z-50 py-8 bg-neutral-800 border-none shadow-[0px_5px_10px_5px_#000000]">
-                    <div className="flex flex-col items-center gap-4 w-[500px] px-4">
+                    <div className="flex flex-col items-center gap-4 w-11/12 px-4">
                         <div className="flex justify-between gap-5">
                             {filters.map((f) => (
                                 <Button

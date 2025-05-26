@@ -7,7 +7,7 @@ import {TvShowInterface} from "@/shared/types/Show/TvShowBaseInterface";
 
 type Props = {
     className?: string;
-    item?: MovieInterface | TvShowInterface;
+    item: MovieInterface | TvShowInterface;
 };
 
 export const XlCard: FC<Props> = ({className, item}) => {
@@ -20,7 +20,7 @@ export const XlCard: FC<Props> = ({className, item}) => {
                     <div className='flex flex-col justify-between gap-3 lg:gap-4 2xl:gap-5'>
                         <div className='relative w-[207px] h-[235px] rounded-xl bg-neutral-500 lg:w-[253px] lg:h-[324px] 2xl:w-[319px] 2xl:h-[404px]'>
                             <Image
-                                src={`https://image.tmdb.org/t/p/w500${item?.poster_path}`}
+                                src={`https://image.tmdb.org/t/p/w500${item.poster_path}`}
                                 alt={title || "Movie poster"}
                                 sizes="(max-width: 768px) 207px, (max-width: 1024px) 253px, 319px"
                                 className='object-cover rounded-xl'
@@ -34,12 +34,8 @@ export const XlCard: FC<Props> = ({className, item}) => {
                             <div className='flex items-center gap-1 bg-neutral-900 rounded-full px-1.5 py-1 border-neutral-700 border-1'>
                                 <div className='flex items-center'>
                                     <Star className='fill-orange-600 stroke-0 h-3.5 w-3.5 lg:h-4 lg:w-4 2xl:h-7.5 2xl:w-7.5'/>
-                                    <Star className='fill-orange-600 stroke-0 h-3.5 w-3.5 lg:h-4 lg:w-4 2xl:h-7.5 2xl:w-7.5'/>
-                                    <Star className='fill-orange-600 stroke-0 h-3.5 w-3.5 lg:h-4 lg:w-4 2xl:h-7.5 2xl:w-7.5'/>
-                                    <Star className='fill-orange-600 stroke-0 h-3.5 w-3.5 lg:h-4 lg:w-4 2xl:h-7.5 2xl:w-7.5'/>
-                                    <Star className='fill-orange-600 stroke-0 h-3.5 w-3.5 lg:h-4 lg:w-4 2xl:h-7.5 2xl:w-7.5'/>
                                 </div>
-                                <p className='text-xs text-neutral-400 font-medium 2xl:text-base'>2K</p>
+                                <p className='text-xs text-neutral-400 font-medium 2xl:text-base'>{+item.vote_average.toFixed(2)}</p>
                             </div>
                         </div>
                     </div>

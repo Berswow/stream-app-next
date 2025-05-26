@@ -6,7 +6,7 @@ import Image from "next/image";
 
 type Props = {
     className?: string;
-    movie?: MovieInterface
+    movie: MovieInterface
 };
 
 export const SmCard: FC<Props> = ({className, movie}) => {
@@ -18,8 +18,8 @@ export const SmCard: FC<Props> = ({className, movie}) => {
                     <div className='flex flex-col justify-between gap-3 lg:gap-4 2xl:gap-5'>
                         <div className='relative w-[157px] h-[195px] rounded-xl lg:w-[192px] lg:h-[232px] 2xl:w-[243px] 2xl:h-[281px]'>
                             <Image
-                                src={`https://image.tmdb.org/t/p/w342${movie?.poster_path}`}
-                                alt={movie?.title || "Movie poster"}
+                                src={`https://image.tmdb.org/t/p/w342${movie.poster_path}`}
+                                alt={movie.title || "Movie poster"}
                                 sizes="(max-width: 768px) 157px, (max-width: 1024px) 192px, 243px"
                                 className='object-cover rounded-xl'
                                 fill
@@ -30,7 +30,7 @@ export const SmCard: FC<Props> = ({className, movie}) => {
                                 <Clock3 className='text-neutral-400 h-5 w-5 lg:h-6 lg:w-6 2xl:h-7.5 2xl:w-7.5'/><p className='font-medium text-neutral-400 text-xs 2xl:text-base'>1h 30min</p>
                             </div>
                             <div className='flex items-center gap-1 bg-neutral-900 rounded-full px-1.5 py-1 border-neutral-700 border-1'>
-                                <Eye className='text-neutral-400 h-5 w-5 lg:h-6 lg:w-6 2xl:h-7.5 2xl:w-7.5'/><p className='text-xs text-neutral-400 font-medium 2xl:text-base'>2K</p>
+                                <Eye className='text-neutral-400 h-5 w-5 lg:h-6 lg:w-6 2xl:h-7.5 2xl:w-7.5'/><p className='text-xs text-neutral-400 font-medium 2xl:text-base'>{+movie.popularity.toFixed(2)}</p>
                             </div>
 
                         </div>

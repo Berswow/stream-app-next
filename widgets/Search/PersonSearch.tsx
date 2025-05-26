@@ -8,16 +8,15 @@ import {AnimatePresence, motion} from "framer-motion";
 import Link from "next/link";
 import {selectSearchToggle, setSearchToggle} from "@/store/slices/uiSlice";
 import {useDebounce} from "@/shared/hooks/useDebounce";
-import {useGetMovieSearch} from "@/shared/hooks/apiHooks/movies/useMovieSearch";
 import {useAppDispatch} from "@/store/store";
-import {formatDateToYear} from "@/shared/lib/formatDate";
+import {useGetPersonSearch} from "@/shared/hooks/apiHooks/persons/usePersonSearch";
 
 type Props = {
     className?: string;
     type: string;
 };
 
-export const MovieSearch: FC<Props> = ({className, type}) => {
+export const PersonSearch: FC<Props> = ({className, type}) => {
     const [searchValue, setSearchValue] = useState("");
     const dispatch = useAppDispatch()
 
@@ -25,7 +24,7 @@ export const MovieSearch: FC<Props> = ({className, type}) => {
 
     const debouncedSearch = useDebounce(searchValue, 500);
 
-    const {data, isLoading, error} = useGetMovieSearch(debouncedSearch);
+    const {data, isLoading, error} = useGetPersonSearch(debouncedSearch);
 
     const searchResults = useMemo(() => data?.results.slice(0, 5) || [], [data]);
 
@@ -76,8 +75,8 @@ export const MovieSearch: FC<Props> = ({className, type}) => {
                                 <li
                                     className="flex items-center gap-2 p-3 text-nowrap cursor-pointer rounded-xl hover:shadow-[0px_5px_10px_5px_#000000] transition-shadow duration-300"
                                 >
-                                    <Search className='shrink-0' size={15}/> <span className='text-wrap'>{result.title}</span>
-                                    <span>({formatDateToYear(result.release_date)})</span>
+                                    <Search size={15}/> {result.name}
+                                    <span>({result.known_for_department})</span>
                                 </li>
                             </Link>
                         ))}
