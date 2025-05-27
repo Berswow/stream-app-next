@@ -1,4 +1,6 @@
-import React, {FC} from "react";
+'use client'
+
+import React, {FC, useState} from "react";
 import {cn} from "@/shared/lib/utils";
 import {Skeleton} from "@/shared/ui/skeleton";
 import Image from "next/image";
@@ -8,13 +10,19 @@ import {IMAGE_BASE_URL} from "@/shared/constants/images";
 import {MovieDetailed} from "@/shared/types/Movie/MovieDetailInterface";
 import {TvShowDetailed} from "@/shared/types/Show/TvShowDetailInterface";
 import {getDisplayTitleDetailed} from "@/shared/lib/getDisplayTitle";
+import {TrailerModal} from "@/shared/ui/components/trailer-modal";
+import {useGetTrailer} from "@/shared/hooks/apiHooks/useTrailer";
 
 type Props = {
     className?: string;
     item?:MovieDetailed | TvShowDetailed
+    itemId:number
+    type: 'movie' | 'tv'
 };
 
-export const HeroInfo: FC<Props> = ({className, item}) => {
+export const HeroInfo: FC<Props> = ({className, item, itemId, type}) => {
+    const [isModalOpen, setIsModalOpen] = useState(false)
+    const {data: trailerKey} = useGetTrailer(type, itemId ?? 0)
 
     const imageUrl = item?.backdrop_path
         ? `${IMAGE_BASE_URL}${item.backdrop_path}`
@@ -50,7 +58,7 @@ export const HeroInfo: FC<Props> = ({className, item}) => {
                         <p className="hidden text-neutral-400 text-sm md:block lg:text-base font-medium 2xl:text-lg max-w-2xl mx-auto">{item?.overview}</p>
 
                         <div className="flex flex-col gap-5 md:flex-row justify-center">
-                            <Button variant="default" className="h-[52px] w-[310px] md:w-[128px] 2xl:w-[157px] 2xl:h-[56px]">
+                            <Button variant="default" onClick={() => setIsModalOpen(true)} className="h-[52px] w-[310px] md:w-[128px] 2xl:w-[157px] 2xl:h-[56px]">
                                 <Play fill="white" />
                                 Play Now
                             </Button>
@@ -69,7 +77,7 @@ export const HeroInfo: FC<Props> = ({className, item}) => {
                     </div>
                 </div>
             }
-
+            <TrailerModal trailerKey={trailerKey ?? ""} isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
         </div>
     );
 };

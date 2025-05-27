@@ -22,7 +22,7 @@ export default function TvShowsDetailed() {
 
     return (
         <div className='flex flex-col gap-15 lg:gap-20 2xl:gap-25'>
-            <HeroInfo item={tvShow}/>
+            <HeroInfo item={tvShow} itemId={tvShowId} type={'tv'}/>
             <div>
                 {/* Mobile */}
                 <div className="my-container flex flex-col gap-5 md:hidden">

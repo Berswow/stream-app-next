@@ -60,7 +60,7 @@ export const Header = () => {
             {/* Icons */}
             <div className="hidden md:flex gap-5 items-center justify-end">
                 {/*<Search size={30}/>*/}
-                <Bell size={30}/>
+                {/*<Bell size={30}/>*/}
                 <GlobalSearch iconSize={30}/>
                 {/*<ThemeToggle/>*/}
             </div>

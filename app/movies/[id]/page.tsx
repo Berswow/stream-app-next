@@ -19,7 +19,7 @@ export default function MovieDetailed() {
 
     return (
         <div className='flex flex-col gap-15 lg:gap-20 2xl:gap-25 '>
-            <HeroInfo item={movie}/>
+            <HeroInfo item={movie} itemId={movieId} type={'movie'}/>
             <div>
                 <div className="my-container flex flex-col gap-5 md:hidden">
                     <DescriptionInfo item={movie}/>
