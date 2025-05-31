@@ -11,6 +11,7 @@ import Link from "next/link";
 import {useAppDispatch} from "@/store/store";
 import {setAddGenres, setClearAll} from "@/store/slices/filterSlice";
 import Autoplay from "embla-carousel-autoplay";
+import {ROUTES} from "@/shared/constants/routes";
 
 type Props = {
     className?: string;
@@ -44,7 +45,8 @@ export const PopularMovies: FC<Props> = ({ className }) => {
                             </div>
                         ))
                         : genres.map((genre) => (
-                            <Link href={`/movies/genre/${genre.name.toLowerCase()}`}
+                            <Link
+                                  href={ROUTES.MOVIE_GENRE_SLUG(genre.name.toLowerCase())}
                                   passHref
                                   key={genre.id}
                                   prefetch={false}

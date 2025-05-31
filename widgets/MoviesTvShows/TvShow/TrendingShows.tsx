@@ -9,6 +9,7 @@ import {useGetTrendingTv} from "@/shared/hooks/apiHooks/tvShows/useTrendingTv";
 import {MdCardSkeleton} from "@/shared/skeletons/MdCardSkeleton";
 import Autoplay from "embla-carousel-autoplay";
 import Link from "next/link";
+import {ROUTES} from "@/shared/constants/routes";
 
 type Props = {
     className?: string;
@@ -43,7 +44,7 @@ export const TrendingShows: React.FC<Props> = ({className}) => {
                         ))
                     ) : (
                         tvShowList.map((tvShow) => (
-                            <Link href={`/tvshows/${tvShow.id}`} passHref key={tvShow.id} prefetch={false}>
+                            <Link href={ROUTES.TVSHOW_DETAILED_SLUG(tvShow.id)} passHref key={tvShow.id} prefetch={false}>
                                 <div
                                     key={tvShow.id}
                                     className="basis-1/3 md:basis-1/4 lg:basis-1/5 inline-flex rounded-xl

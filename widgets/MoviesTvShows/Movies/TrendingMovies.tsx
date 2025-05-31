@@ -9,6 +9,7 @@ import {useGetTrendingMovies} from "@/shared/hooks/apiHooks/movies/useTrendingMo
 import {MdCardSkeleton} from "@/shared/skeletons/MdCardSkeleton";
 import Link from "next/link";
 import Autoplay from "embla-carousel-autoplay";
+import {ROUTES} from "@/shared/constants/routes";
 
 type Props = {
     className?: string;
@@ -44,7 +45,7 @@ export const TrendingMovies: React.FC<Props> = ({className}) => {
                         ))
                     ) : (
                         moviesList.map((movie) => (
-                            <Link href={`/movies/${movie.id}`} passHref key={movie.id} prefetch={false}>
+                            <Link href={ROUTES.MOVIE_DETAILED_SLUG(movie.id)} passHref key={movie.id} prefetch={false}>
                                 <div
                                     key={movie.id}
                                     className="basis-1/3 md:basis-1/4 lg:basis-1/5 inline-flex rounded-xl

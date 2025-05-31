@@ -5,12 +5,13 @@ import {Sheet, SheetContent, SheetDescription, SheetHeader, SheetTitle, SheetTri
 import { Menu } from "lucide-react"
 import Link from "next/link"
 import {Button} from "@/shared/ui/button";
+import {ROUTES} from "@/shared/constants/routes";
 
 const tabs = [
-    {id: 'home', label: 'Home', link: '/'},
-    {id: 'movies', label: 'Movies & Shows', link: '/movies-shows'},
-    {id: 'series', label: 'Support', link: '/support'},
-    {id: 'favorites', label: 'Subscriptions', link: '/subscriptions'},
+    {id: 'home', label: 'Home', link: ROUTES.HOME},
+    {id: 'movies-shows', label: 'Movies & Shows', link: ROUTES.MOVIES_SHOWS},
+    {id: 'support', label: 'Support', link: ROUTES.SUPPORT},
+    {id: 'subscriptions', label: 'Subscriptions', link: ROUTES.SUBSCRIPTIONS},
 ]
 
 export function BurgerMenu() {

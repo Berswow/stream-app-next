@@ -8,13 +8,15 @@ import {useGetAiringToday} from "@/shared/hooks/apiHooks/tvShows/useAiringToday"
 import {MdCardSkeleton} from "@/shared/skeletons/MdCardSkeleton";
 import {FC} from "react";
 import Autoplay from "embla-carousel-autoplay";
+import Link from "next/link";
+import {ROUTES} from "@/shared/constants/routes";
 
 type Props = {
     className?: string;
 };
 
 export const AiringToday: FC<Props> = ({className}) => {
-    const [emblaRef] = useEmblaCarousel({ align: "start", dragFree: true}, [
+    const [emblaRef] = useEmblaCarousel({align: "start", dragFree: true}, [
         Autoplay({
             delay: 3300,
             stopOnInteraction: false,
@@ -38,13 +40,15 @@ export const AiringToday: FC<Props> = ({className}) => {
                         ))
                     ) : (
                         tvShowList.map((tvShow) => (
-                            <div
-                                key={tvShow.id}
-                                className="basis-1/3 md:basis-1/4 lg:basis-1/5 inline-flex p-0 rounded-xl transition-all duration-300
+                            <Link href={ROUTES.TVSHOW_DETAILED_SLUG(tvShow.id)} key={tvShow.id} passHref
+                                  prefetch={false}>
+                                <div
+                                    className="basis-1/3 md:basis-1/4 lg:basis-1/5 inline-flex p-0 rounded-xl transition-all duration-300
              hover:scale-105 hover:shadow-[0px_5px_15px_5px_#000000] active:scale-95"
-                            >
-                                <XlCard item={tvShow}/>
-                            </div>
+                                >
+                                    <XlCard item={tvShow}/>
+                                </div>
+                            </Link>
                         ))
                     )}
                 </div>

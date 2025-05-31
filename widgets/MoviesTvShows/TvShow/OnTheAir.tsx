@@ -8,13 +8,15 @@ import {MdCardSkeleton} from "@/shared/skeletons/MdCardSkeleton";
 import {useGetOnTheAir} from "@/shared/hooks/apiHooks/tvShows/useOnTheAir";
 import {FC} from "react";
 import Autoplay from "embla-carousel-autoplay";
+import {ROUTES} from "@/shared/constants/routes";
+import Link from "next/link";
 
 type Props = {
     className?: string;
 };
 
 export const OnTheAir: FC<Props> = ({className}) => {
-    const [emblaRef] = useEmblaCarousel({ align: "start", dragFree: true}, [Autoplay({
+    const [emblaRef] = useEmblaCarousel({align: "start", dragFree: true}, [Autoplay({
         delay: 4200,
         stopOnInteraction: false,
         stopOnMouseEnter: true,
@@ -36,13 +38,16 @@ export const OnTheAir: FC<Props> = ({className}) => {
                         ))
                     ) : (
                         tvShowList.map((tvShow) => (
-                            <div
-                                key={tvShow.id}
-                                className="basis-1/3 md:basis-1/4 lg:basis-1/5 inline-flex p-0 rounded-xl transition-all duration-300
+                            <Link href={ROUTES.TVSHOW_DETAILED_SLUG(tvShow.id)} key={tvShow.id} passHref
+                                  prefetch={false}>
+                                <div
+                                    key={tvShow.id}
+                                    className="basis-1/3 md:basis-1/4 lg:basis-1/5 inline-flex p-0 rounded-xl transition-all duration-300
              hover:scale-105 hover:shadow-[0px_5px_15px_5px_#000000] active:scale-95"
-                            >
-                                <XlCard item={tvShow}/>
-                            </div>
+                                >
+                                    <XlCard item={tvShow}/>
+                                </div>
+                            </Link>
                         ))
                     )}
                 </div>
