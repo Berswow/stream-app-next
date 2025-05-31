@@ -1,36 +1,67 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🎬 MovieStream — Streaming App for Movies & TV Shows
 
-## Getting Started
+**MovieStream** is a modern streaming-style web app built with **Next.js**, **TanStack Query**, and **TMDb API**. It allows users to discover, filter, and explore movies and TV series based on genres, language, release year, and more.
 
-First, run the development server:
+![img_3.png](img_3.png)
+
+---
+
+## 🚀 Tech Stack
+
+- **Next.js** — App routing and SSR
+- **React** — Component-based UI
+- **TanStack Query** — Data fetching and caching
+- **Tailwind CSS** + **ShadCN UI** — Styling
+- **Embla Carousel** — Responsive sliders
+- **TMDb API** — Movie & TV show database
+
+---
+
+## ✨ Features
+
+- 🔍 Search movies and TV shows
+- 🗂️ Categories: popular, trending, top-10
+- 🎯 Filters:
+    - By genres
+    - By original language
+    - By release year
+- 🌓 Dark/light mode support
+- 📱 Responsive design
+- ❤️ Favorites (coming soon)
+
+---
+
+## 📦 Installation
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+# Clone the repository
+git clone https://github.com/Berswow/stream-app-next.git
+cd stream-app-next
+
+# Install dependencies
+npm install
+
+# Add environment variables
+touch .env.local
+
+NEXT_PUBLIC_TMDB_API_KEY=your_tmdb_api_key_here
+
+# Run development server
+npm run dev 
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+🔮 Coming Soon
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+ - Auth + user-specific favorites
+ - Embedded player support
+ - Localization (i18n)
+ - Offline support (PWA)
 
-## Learn More
+---
 
-To learn more about Next.js, take a look at the following resources:
+📄 License & Disclaimer
+This project is for educational purposes and uses public data from TMDb.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+This product uses the TMDb API but is not endorsed or certified by TMDb.
